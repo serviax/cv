@@ -22,7 +22,7 @@
             <div id="languageBar" data-ng-controller="LanguageController">
                 <div id="languageSelectionBar">
                     <form>
-                        <select id="languageSelection" data-ng-model="selectedLanguage" ng-change="ChangeLangauge(selectedLanguage)" data-ng-options="item for item in languages">
+                        <select id="languageSelection" data-ng-model="selectedLanguage" ng-change="ChangeLangauge(selectedLanguage)" data-ng-options="item.key as item.label for item in languages">
                         </select>
                     </form>
                 </div>

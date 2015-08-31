@@ -6,9 +6,18 @@
             $location.path("/language/" + language);
         }
 
-        var languages = [ "nl", "en"];
+        var languages = [ 
+            {
+                key : 'nl',
+                label: 'Nederlands'
+            },
+            {
+                key : 'en',
+                label : 'English'
+            }];
+
         $scope.languages = languages;
-        $scope.selectedLanguage = "nl";
+        $scope.selectedLanguage = 'nl';
         $scope.ChangeLangauge = ChangeLangauge;
     }
 
