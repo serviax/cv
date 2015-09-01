@@ -1,5 +1,5 @@
 ﻿(function () {
-    var application = angular.module("CvBrowser", ["ngRoute"]);
+    var application = angular.module("CvBrowser", ["ngRoute", "ui.bootstrap", "uiGmapgoogle-maps"]);
     application.config(["$routeProvider",
         function ($routeProvider) {
             $routeProvider
@@ -16,5 +16,13 @@
                     }
                     )
                 .otherwise({ redirectTo: "/language/nl" })
+        }]);
+
+    application.config(["uiGmapGoogleMapApiProvider",
+        function (uiGmapGoogleMapApiProvider) {
+            uiGmapGoogleMapApiProvider.configure({
+                key: 'AIzaSyBdmUGD9D0ND9T_DPQ0nkJ2T-QKbp6SqKs',
+                libraries: 'geometry,visualization'
+            })
         }]);
 })();

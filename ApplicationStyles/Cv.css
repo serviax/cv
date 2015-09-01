@@ -1,14 +1,6 @@
 ﻿/****************************
 * General Layout
 *****************************/
-body {
-    font-family: Verdana, Utopia, Serif;
-    font-size: 0.75em;
-    color: #555555;
-    background-color: White;
-    margin: 0;
-    padding: 0;
-}
 
 /*** Headings ***/
 h1 {
@@ -17,13 +9,11 @@ h1 {
 }
 
 h2 {
-    font-size: 250%;
     margin: 0;
     color: #252525;
 }
 
 h3 {
-    font-size: 175%;
     color: #001999;
     margin: 0;
     width: 150px;
@@ -38,7 +28,6 @@ h3 {
     }
 
 h4 {
-    font-size: 125%;
     color: #3D3D3D;
 }
 
@@ -134,7 +123,7 @@ p.explanation {
 }
 
 .tagList {
-    font-size: 150%;
+    font-size: 120%;
 }
 
 
@@ -172,27 +161,14 @@ div#languageBar {
     color: #E7E7E7;
 }
 
-/*div#languageSelectionBar {
-    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 95% 50%;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    background-color: #555555;
-    height: 25px;
-    overflow: hidden;
-    width: 125px;
-    display: inline-block;
-    vertical-align: middle;
+.angular-google-map-container {
+    height: 450px;
+    display: table;
+    width: 100%;
+    padding-left : 0;
+    padding-right : 0;
+    background-color : #E7E7E7;
 }
-
-    div#languageSelectionBar > select {
-        background: transparent;
-        border: none;
-        font-size: 14px;
-        padding: 5px;
-        width: 150px;
-        color: #E7E7E7;
-    }*/
 
 /**************************
 * Mobile Devices
@@ -221,8 +197,7 @@ div#languageBar {
     }
 
         div#languageBar > select {
-
-        font-size : 1.25em;
+            font-size: 1.25em;
         }
 
     dt {
@@ -238,7 +213,7 @@ div#languageBar {
     }
 
     a.longText {
-    display : none;
+        display: none;
     }
 
     dd#longText {
