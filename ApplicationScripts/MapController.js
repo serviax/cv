@@ -5,7 +5,7 @@
             var modalDialog = $modal.open(
                 {
                     animation: true,
-                    templateUrl: "/mapview.html",
+                    templateUrl: "mapview.html",
 
                 }
             );
@@ -17,7 +17,7 @@
         uiGmapGoogleMapApi.then(
             function (maps) {
                 $log.info('map is loaded, setting coordinates');
-                $scope.map = { center: { latitude: 50.861113, longitude: 4.700870 }, zoom: 12, homeMarker: { latitude: 50.861113, longitude: 4.700870 } };
+                $scope.map = { center: { latitude: 50.902733, longitude: 4.673980 }, zoom: 12, homeMarker: { latitude: 50.902733, longitude: 4.673980 } };
             }
         );
     }
