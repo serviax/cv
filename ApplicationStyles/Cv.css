@@ -5,7 +5,7 @@
 /*** Headings ***/
 h1 {
     float: left;
-    color: #E7E7E7;
+    color: #F7F7F7;
 }
 
 h2 {
@@ -94,6 +94,7 @@ div.section {
 div.subSection {
     margin: 0px 0px 25px 0px;
     border-bottom: 1px solid #8D8D8D;
+    min-height: 100px;
 }
 
     div.subSection:nth-of-type(odd) {
@@ -137,7 +138,7 @@ div#header {
     position: fixed;
     border-width: 0px 0px 10px 0px;
     border-style: solid;
-    border-color: #ffc20e;
+    border-color: #8D8D8D;
     width: 100%;
     background-color: #001999;
 }
@@ -165,9 +166,9 @@ div#languageBar {
     height: 450px;
     display: table;
     width: 100%;
-    padding-left : 0;
-    padding-right : 0;
-    background-color : #E7E7E7;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #E7E7E7;
 }
 
 /**************************
@@ -246,13 +247,29 @@ div#languageBar {
         display: none;
     }
 
+    a[href]:after {
+    content : none;
+    }
+
+
     div#header {
         position: absolute;
+        border-bottom-width : 2pt;
+    }
+
+    dl {
+        padding-left: 15px;
+    }
+
+    p
+    {
+    padding-left : 15px;
     }
 
     h3 {
         width: auto;
         padding-top: 15px;
+        padding-left: 15px;
     }
 
         h3:nth-of-type(even) {
@@ -270,6 +287,7 @@ div#languageBar {
     div.subSection {
         padding: 0px 15px;
         border: 0px solid transparent;
+        min-height: 0px;
     }
 
         div.subSection:nth-of-type(odd) {
