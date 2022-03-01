@@ -1,0 +1,20 @@
+POST http://localhost:7000/personal/
+Content-Type: application/json
+
+{
+  "firstName": "Servaas",
+  "lastName": "Phlips",
+  "birthDate": "1983-09-05",
+  "mobileNumber": "0498/47.74.10",
+  "driverLicense": "type B",
+  "address" : {
+    "street": "Leo Meulemansstraat",
+    "houseNumber": "3",
+    "numberExtension": "bus 103",
+    "municipality": "Herent",
+    "postalCode": "3020",
+    "country": "BE",
+    "latitude": 50.90269488722662,
+    "longitude": 4.673945709175088
+  }
+}

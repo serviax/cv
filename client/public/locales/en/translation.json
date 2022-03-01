@@ -1,0 +1,9 @@
+{
+  "header": {
+    "intro" : "Welcome on the C.V. of Servaas Phlips"
+  },
+  "personalInfo": {
+    "firstName": "name",
+    "lastName": "surname"
+  }
+}
