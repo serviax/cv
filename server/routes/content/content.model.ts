@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { TranslationSchema } from './translation.model';
+import { TranslationSchema } from '../translations/translation.model';
 
 const Schema = mongoose.Schema;
 

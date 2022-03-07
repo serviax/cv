@@ -1,5 +1,5 @@
 import ContentElement from './content.model';
-import TranslationElement from './translation.model';
+import TranslationElement from '../translations/translation.model';
 import { Router } from 'express';
 
 const contentRouter = Router();

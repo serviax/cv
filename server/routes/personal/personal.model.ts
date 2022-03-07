@@ -11,8 +11,7 @@ const Address = new Schema({
   country: {type: String, match:/^[A-Za-z]{2}$/ },
   latitude: Number,
   longitude: Number
-}
-);
+});
 
 const PersonSchema = new Schema({
   firstName: String,

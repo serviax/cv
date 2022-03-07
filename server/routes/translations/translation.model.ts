@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
+interface Translation {
+   language: string;
+   translation: string;
+}
+
 const TranslationSchema = new Schema({
   //  ISO 639-codes
   language: {type: String, match: /^[a-z]{2}$/ },
@@ -8,4 +13,4 @@ const TranslationSchema = new Schema({
 });
 
 const TranslationModel = mongoose.model('translation',TranslationSchema);
-export {TranslationSchema, TranslationModel as default };
+export {Translation, TranslationSchema, TranslationModel as default };

@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import contentRouter from './routes/content/content.router';
 import personalRouter from './routes/personal/personal.router';
 import cors from 'cors';
+import keywordRouter from './routes/keywords/keywords.router';
+import experiencesRouter from './routes/experiences/experiences.router';
 
 interface CvEnvironmentEnvs extends NodeJS.ProcessEnv {
   MONGO_DB_CONNECTION_STRING: string
@@ -28,13 +30,15 @@ app.use(express.urlencoded({ extended: false }));
 // app.use('/users', usersRouter);
 
 mongoose.connect((<CvEnvironmentEnvs>process.env).MONGO_DB_CONNECTION_STRING)
-  .then(result => {
+  .then(() => {
     const PORT = 7000;
 
     app.get('/', (req, res) => res.send('Express with type script server has been started'));
 
-    app.use('/content', contentRouter);
-    app.use('/personal', personalRouter);
+    app.use('/api/content', contentRouter);
+    app.use('/api/personal', personalRouter);
+    app.use('/api/keywords', keywordRouter);
+    app.use('/api/experiences', experiencesRouter);
 
     app.listen(PORT, () => {
       console.log(`started server, runnig at port ${PORT}`);

@@ -1,0 +1,31 @@
+// @name activeDirectoryAuth
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token HTTP/1.1
+Content-type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id={{clientId}}
+&client_secret={{clientSecret}}
+&scope={{scope}}
+###
+
+@authToken = {{activeDirectoryAuth.response.body.access_token}}
+POST http://localhost:7000/api/experiences
+Content-Type: application/json
+Authorization: Bearer @{{authToken}}
+
+{
+  "languageCode": "nl",
+  "startDate": "2020-12-15",
+  "description": "working on stuff",
+  "projects": [
+      {
+        "description" : "do some stuff",
+        "tasks" : ["one thing", "another thing"]
+      }
+  ],
+  "keywords" : ["C++", "Cobol"]
+
+}
+
+###
+DELETE http://localhost:7000/api/experiences/6225176cb9150e7483c0cce5
