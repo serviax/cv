@@ -11,7 +11,7 @@ grant_type=client_credentials
 @authToken = {{activeDirectoryAuth.response.body.access_token}}
 POST http://localhost:7000/api/experiences
 Content-Type: application/json
-Authorization: Bearer @{{authToken}}
+Authorization: Bearer {{authToken}}
 
 {
   "languageCode": "nl",
