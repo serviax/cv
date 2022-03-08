@@ -8,6 +8,10 @@ grant_type=client_credentials
 &scope={{scope}}
 ###
 
+GET http://localhost:7000/api/experiences/nl
+
+###
+
 @authToken = {{activeDirectoryAuth.response.body.access_token}}
 POST http://localhost:7000/api/experiences
 Content-Type: application/json

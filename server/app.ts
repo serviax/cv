@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import NODE_ENVS from './config';
 import express from 'express';
 import mongoose from 'mongoose';
 import contentRouter from './routes/content/content.router';
@@ -6,10 +7,7 @@ import personalRouter from './routes/personal/personal.router';
 import cors from 'cors';
 import keywordRouter from './routes/keywords/keywords.router';
 import experiencesRouter from './routes/experiences/experiences.router';
-
-interface CvEnvironmentEnvs extends NodeJS.ProcessEnv {
-  MONGO_DB_CONNECTION_STRING: string
-}
+import authenticationRouter from './middlewares/middleware.authentication';
 
 // var path = require('path');
 // var cookieParser = require('cookie-parser');
@@ -21,6 +19,7 @@ app.use(cors());
 // app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(authenticationRouter);
 
 
 // app.use(cookieParser());
@@ -29,7 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // app.use('/users', usersRouter);
 
-mongoose.connect((<CvEnvironmentEnvs>process.env).MONGO_DB_CONNECTION_STRING)
+mongoose.connect(NODE_ENVS.MONGO_DB_CONNECTION_STRING)
   .then(() => {
     const PORT = 7000;
 
