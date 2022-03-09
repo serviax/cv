@@ -3,6 +3,7 @@ export interface CvEnvironmentEnvs extends NodeJS.ProcessEnv {
   TOKEN_ISS: string,
   TOKEN_AUD: string,
   DEFAULT_LANGUAGE: string;
+  PORT: string;
 }
 
 const NODE_ENVS = <CvEnvironmentEnvs>process.env;

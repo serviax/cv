@@ -8,36 +8,39 @@ import cors from 'cors';
 import keywordRouter from './routes/keywords/keywords.router';
 import experiencesRouter from './routes/experiences/experiences.router';
 import authenticationRouter from './middlewares/middleware.authentication';
-
-// var path = require('path');
-// var cookieParser = require('cookie-parser');
-// var logger = require('morgan');
+import { sendErrorResponse } from './routes/utils';
+import morgan from 'morgan';
 
 const app = express();
 
-app.use(cors());
-// app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(authenticationRouter);
-
-
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-
-// app.use('/users', usersRouter);
-
 mongoose.connect(NODE_ENVS.MONGO_DB_CONNECTION_STRING)
   .then(() => {
-    const PORT = 7000;
+    const PORT = Number(NODE_ENVS.PORT) ?? 7000;
 
-    app.get('/', (req, res) => res.send('Express with type script server has been started'));
+    app.use(cors());
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false }));
+    app.use(morgan(':method :status :url :response-time ms - :req[authorization]'));
 
+    app.use(authenticationRouter);
+  
     app.use('/api/content', contentRouter);
     app.use('/api/personal', personalRouter);
     app.use('/api/keywords', keywordRouter);
     app.use('/api/experiences', experiencesRouter);
+
+
+    app.use(function (err: any, req: any, res: any, next: any) {
+
+      if (err.name === 'UnauthorizedError') {
+        return sendErrorResponse(res, 401, 'Your token is invalid');
+      }
+      if (err.name === 'TokenValidationError') {
+        return sendErrorResponse(res, 401, `Your token failed to validate because of the following reason : ${err.message}`);
+      }
+
+      return sendErrorResponse(res, 500, `Error ${err.name} happened, message: ${err.message}`);
+    });
 
     app.listen(PORT, () => {
       console.log(`started server, runnig at port ${PORT}`);

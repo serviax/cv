@@ -13,6 +13,11 @@ GET http://localhost:7000/api/experiences/nl
 ###
 
 @authToken = {{activeDirectoryAuth.response.body.access_token}}
+DELETE http://localhost:7000/api/experiences/nl
+Authorization: Bearer {{authToken}}
+
+### 
+@authToken = {{activeDirectoryAuth.response.body.access_token}}
 POST http://localhost:7000/api/experiences
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
@@ -32,4 +37,4 @@ Authorization: Bearer {{authToken}}
 }
 
 ###
-DELETE http://localhost:7000/api/experiences/6225176cb9150e7483c0cce5
+DELETE http://localhost:7000/api/experiences/6229096f4aee3c025ff12126
