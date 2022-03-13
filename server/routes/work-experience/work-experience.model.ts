@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 
 const ExperienceSchema = new Schema({
   languageCode: { type: String, maxlength: 2, match: /^[a-z]{2}$/ },
-  startDate: Date,
+  startDate: {
+    type: Date,
+    required: true,
+  },
   endDate: Date,
   description: String,
   projects: [{
@@ -15,5 +18,5 @@ const ExperienceSchema = new Schema({
 });
 
 
-const ExperienceModel = mongoose.model('experience', ExperienceSchema);
+const ExperienceModel = mongoose.model('work-experience', ExperienceSchema);
 export { ExperienceSchema, ExperienceModel as default };

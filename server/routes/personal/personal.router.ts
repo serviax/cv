@@ -1,28 +1,24 @@
 import PersonModel from './personal.model';
 import Router from 'express';
-import AddressModel from './Address.model';
-import expressAsyncHandler from 'express-async-handler';
+import asyncHandler from 'express-async-handler';
+import { sendExpressErrorResponse } from '../shared/utils';
+import AddressModel from './address.model';
 
 const personalRouter = Router();
 
-personalRouter.get('/', expressAsyncHandler(async (request, response) => {
-  const persons = await PersonModel.find({});
-  response.json(persons);
+personalRouter.get('/', asyncHandler(async (request, response) => {
+  const person = await PersonModel.findOne({});
+  // We are only supporting it for one person
+  response.json(person);
 }));
 
-personalRouter.get('/:id', expressAsyncHandler(async (request, response) => {
-  const id = request.params.id;
-  const persons = await PersonModel.findById(id);
-  response.json(persons);
-}));
-
-
-personalRouter.post('/', expressAsyncHandler(async (request, response) => {
+personalRouter.post('/', asyncHandler(async (request, response) => {
   const body = request.body;
 
-  const searchPerson = await PersonModel.findOne({ 'firstName': body.firstName, 'lastName': body.lastName });
+  const searchPerson = await PersonModel.findOne({});
   if (searchPerson) {
-    response.status(409).send(`Person ${searchPerson.firstName} ${searchPerson.lastName} already exists, consider updating this person. (by using PUT)`);
+    sendExpressErrorResponse(response, 409, 'There is already a person in the database, consider updating it by using PUT.');
+    return;
   }
 
   const address = new AddressModel({ ...body.address });
@@ -36,15 +32,29 @@ personalRouter.post('/', expressAsyncHandler(async (request, response) => {
 }));
 
 
-personalRouter.put('/:id', expressAsyncHandler(async (request, response) => {
-  const id = request.params.id;
+personalRouter.put('/', asyncHandler(async (request, response) => {
   const body = request.body;
 
-  const address = {... body.address };
-  const person = { ... body, address: address };
+  const searchPerson = await PersonModel.findOne({ firstName: body.firstName, lastName: body.lastName });
+  if (!searchPerson) {
+    sendExpressErrorResponse(response, 409, 'The person you submitted cannot be found, ' +
+      'consider using DELETE instead if you want to replace the person, consider using POST if you want to insert a person.');
+    return;
+  }
+  const id = searchPerson.id;
 
-  const updatedPerson = await PersonModel.findByIdAndUpdate(id, person, {new: true});
+  const address = { ...body.address };
+  const person = { ...body, address: address };
+
+  const updatedPerson = await PersonModel.findByIdAndUpdate(id, person, { new: true, runValidators: true });
   response.json(updatedPerson);
 }));
+
+personalRouter.delete('/', asyncHandler(async (request, response) => {
+  await PersonModel.deleteMany({});
+  response.status(204).end();
+  return;
+}));
+
 
 export default personalRouter;

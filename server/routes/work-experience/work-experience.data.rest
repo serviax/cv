@@ -1,4 +1,4 @@
-// @name activeDirectoryAuth
+// @name auth
 POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token HTTP/1.1
 Content-type: application/x-www-form-urlencoded
 
@@ -7,18 +7,14 @@ grant_type=client_credentials
 &client_secret={{clientSecret}}
 &scope={{scope}}
 ###
-
-GET http://localhost:7000/api/experiences/nl
+@authToken = {{auth.response.body.access_token}}
 
 ###
-
-@authToken = {{activeDirectoryAuth.response.body.access_token}}
-DELETE http://localhost:7000/api/experiences/nl
+DELETE http://localhost:7000/api/work-experiences/
 Authorization: Bearer {{authToken}}
 
 ### 
-@authToken = {{activeDirectoryAuth.response.body.access_token}}
-POST http://localhost:7000/api/experiences
+POST http://localhost:7000/api/work-experiences/
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -36,5 +32,5 @@ Authorization: Bearer {{authToken}}
 
 }
 
-###
-DELETE http://localhost:7000/api/experiences/6229096f4aee3c025ff12126
+### 
+GET  http://localhost:7000/api/work-experiences/nl

@@ -3,7 +3,7 @@ import jwt, { secretType } from 'express-jwt';
 import axios from 'axios';
 import NODE_ENVS from '../config';
 import unless from 'express-unless';
-import { sendErrorResponse } from '../routes/utils';
+import { sendExpressErrorResponse } from '../routes/shared/utils';
 
 interface SecretKeys {
   keys: { kty: string, kid: string, x5c: string[] }[]
@@ -49,7 +49,7 @@ const extractSecret = function (req: Express.Request, header: any, payload: any,
 const authorizationHeaderNeeded = (request: any, response: any, next: any) => {
   console.log('checking header');
   if (!request.headers.authorization)
-    return sendErrorResponse(response, 401, 'You need to be logged in to perform this action.');
+    return sendExpressErrorResponse(response, 401, 'You need to be logged in to perform this action.');
 
   next();
 };

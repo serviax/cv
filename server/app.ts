@@ -1,15 +1,22 @@
 import 'dotenv/config';
 import NODE_ENVS from './config';
+
+import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
-import contentRouter from './routes/content/content.router';
-import personalRouter from './routes/personal/personal.router';
-import cors from 'cors';
-import keywordRouter from './routes/keywords/keywords.router';
-import experiencesRouter from './routes/experiences/experiences.router';
-import authenticationRouter from './middlewares/middleware.authentication';
-import { sendErrorResponse } from './routes/utils';
 import morgan from 'morgan';
+
+import authenticationRouter from './middlewares/middleware.authentication';
+import personalRouter from './routes/personal/personal.router';
+import createSectionRouter from './routes/shared/section.router';
+import { ExperienceSchema } from './routes/work-experience/work-experience.model';
+import { KeyWordSchema } from './routes/keyword/keyword.model';
+
+import { sendExpressErrorResponse } from './routes/shared/utils';
+import developmentKnowledgeRouter from './routes/development-knowledge/development-knowledge.router';
+import { LanguageKnowledgeSchema } from './routes/language-knowledge/language-knowledge.model';
+import { UpdateKnowledgeSchema } from './routes/update-knowledge/update-knowledge.model';
+import educationRouter from './routes/education/education.router';
 
 const app = express();
 
@@ -20,26 +27,40 @@ mongoose.connect(NODE_ENVS.MONGO_DB_CONNECTION_STRING)
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
-    app.use(morgan(':method :status :url :response-time ms - :req[authorization]'));
+    app.use(morgan(':method :status :url :response-time ms'));
 
     app.use(authenticationRouter);
-  
-    app.use('/api/content', contentRouter);
+
     app.use('/api/personal', personalRouter);
+
+    const keywordRouter = createSectionRouter('keyword', KeyWordSchema);
     app.use('/api/keywords', keywordRouter);
-    app.use('/api/experiences', experiencesRouter);
+
+    const experiencesRouter = createSectionRouter('work-experience', ExperienceSchema);
+    app.use('/api/work-experiences', experiencesRouter);
+
+    app.use('/api/development-knowledges', developmentKnowledgeRouter);
+
+    const languagesRouter = createSectionRouter('language-knowledge', LanguageKnowledgeSchema);
+    app.use('/api/language-knowledges', languagesRouter);
+
+    const updateKnowledgeRouter = createSectionRouter('update-knowledge', UpdateKnowledgeSchema);
+    app.use('/api/update-knowledges', updateKnowledgeRouter);
+
+    app.use('/api/education', educationRouter);
 
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     app.use(function (err: any, req: any, res: any, next: any) {
 
       if (err.name === 'UnauthorizedError') {
-        return sendErrorResponse(res, 401, 'Your token is invalid');
+        return sendExpressErrorResponse(res, 401, 'Your token is invalid');
       }
       if (err.name === 'TokenValidationError') {
-        return sendErrorResponse(res, 401, `Your token failed to validate because of the following reason : ${err.message}`);
+        return sendExpressErrorResponse(res, 401, `Your token failed to validate because of the following reason : ${err.message}`);
       }
 
-      return sendErrorResponse(res, 500, `Error ${err.name} happened, message: ${err.message}`);
+      return sendExpressErrorResponse(res, 500, `Error ${err.name} happened, message: ${err.message}`);
     });
 
     app.listen(PORT, () => {

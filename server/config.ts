@@ -4,6 +4,7 @@ export interface CvEnvironmentEnvs extends NodeJS.ProcessEnv {
   TOKEN_AUD: string,
   DEFAULT_LANGUAGE: string;
   PORT: string;
+  MINIMUM_PHONE_NUMBER_LENGTH: string;
 }
 
 const NODE_ENVS = <CvEnvironmentEnvs>process.env;
