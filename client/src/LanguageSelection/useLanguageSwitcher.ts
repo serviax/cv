@@ -1,0 +1,39 @@
+import { useAppDispatch, useAppSelector } from '../common/hooks';
+import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
+import { switchLanguage } from './LanguageSelection.reducer';
+import { i18n as translationService, useTranslation } from '../translations';
+import { useEffect } from 'react';
+import { DropdownModel, DropdownMenuItemModel } from '../Dropdown/Dropdown.model';
+import { LANGUAGES } from '../common/config';
+
+const useLanguageSwitcher = () => {
+  const language = useAppSelector(state => state.language);
+  const dispatch = useAppDispatch();
+  const { notify } = useAppNotifications();
+  const { t } = useTranslation();
+
+  const setLanguage = (lang: string) => {
+    dispatch(switchLanguage(lang));
+  };
+
+  const items = LANGUAGES.map<DropdownMenuItemModel>(
+    code => <DropdownMenuItemModel>{ icon: `lng lng-${code}`, value: code.toUpperCase(), key: code, onSelect: () => setLanguage(code) }
+  );
+
+  const languageMenu: DropdownModel = {
+    noItemSelected: t('languageSwitcher.languageChoice'),
+    items: items,
+    selectedItem: items.find(x => x.key == language)
+  };
+
+  useEffect(() => {
+
+    translationService.changeLanguage(language);
+    const notification = <Partial<Notification>>{ message: t('languageSwitcher.switchMessage'), status: 'info', dismissAfter: 3500 };
+    dispatch(notify(notification));
+  }, [language]);
+
+  return { setLanguage, language, languageMenu };
+};
+
+export default useLanguageSwitcher;

@@ -1,0 +1,28 @@
+.fib, .lngb {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.fi, .lng {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 1.33333333em;
+  line-height: 1em;
+}
+.fi:before, .lng:before {
+  content: '\00a0';
+}
+.fi.fis, .lngs {
+  width: 1em;
+}
+
+.lng-nl {
+  background-image: url('../../public/flags/nl.svg');
+}
+
+.lng-en {
+  background-image: url('../../public/flags/gb.svg');
+}

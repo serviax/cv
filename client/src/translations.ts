@@ -15,4 +15,4 @@ i18n
   });
 
 
-export { i18n as default, useTranslation};
+export { i18n, useTranslation};

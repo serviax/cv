@@ -3,7 +3,7 @@ import { useTranslation } from '../translations';
 import usePersonalInfo from './PersonalInfo.effect';
 
 function PersonalInfo() {
-  const {user} = usePersonalInfo();
+  const { user } = usePersonalInfo();
   const { t } = useTranslation();
 
   return (
