@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
-import PersonalInfo from './PersonalInfo';
+import PersonalInfo from './PersonalInfo/PersonalInfo';
 import 'bulma/css/bulma.min.css';
 
 
-import {useTranslation } from './translations';
+import { useTranslation } from './translations';
+import Keywords from './Keywords/Keywords';
+import Expierences from './experiences/experiences';
+import Notification from './Notifications/Notification';
+import LanguageSwitcher from './LanguageSelection/LanguageSwitcher';
 
 
 // const getTranslations =  async(): Promise<Array<Content>> => {
@@ -17,9 +21,11 @@ import {useTranslation } from './translations';
 function App() {
 
   const { t } = useTranslation();
-  
-  const x = (
+
+  const view = (
     <>
+      <Notification />
+      <LanguageSwitcher />
       <h1>{t('header.intro')}</h1>
 
       <header className='hero is-primary'>
@@ -28,10 +34,12 @@ function App() {
         </div>
       </header>
       <PersonalInfo />
+      <Keywords />
+      <Expierences />
     </>
   );
 
-  return x;
+  return view;
 }
 
 export default App;
