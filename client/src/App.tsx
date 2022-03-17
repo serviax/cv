@@ -26,19 +26,13 @@ function App() {
           <LanguageSwitcher />
         </div>
 
-        <header className='hero is-primary'>
+        <header className='block hero is-primary'>
           <div className='hero-body'>
             <p className='title has-text-centered'>C.V. Phlips Servaas</p>
           </div>
         </header>
 
         <div className='container'>
-
-          <h1>{t('header.intro')}</h1>
-
-          <div>Hello world
-          </div>
-
           <PersonalInfo />
           <Keywords />
           <Expierences />

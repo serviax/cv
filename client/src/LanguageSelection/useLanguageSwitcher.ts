@@ -2,11 +2,12 @@ import { useAppDispatch, useAppSelector } from '../common/hooks';
 import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
 import { switchLanguage } from './LanguageSelection.reducer';
 import { i18n as translationService, useTranslation } from '../translations';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { DropdownModel, DropdownMenuItemModel } from '../Dropdown/Dropdown.model';
 import { LANGUAGES } from '../common/config';
 
 const useLanguageSwitcher = () => {
+  const loadedComponent = useRef(false);
   const language = useAppSelector(state => state.language);
   const dispatch = useAppDispatch();
   const { notify } = useAppNotifications();
@@ -27,10 +28,14 @@ const useLanguageSwitcher = () => {
   };
 
   useEffect(() => {
-
     translationService.changeLanguage(language);
-    const notification = <Partial<Notification>>{ message: t('languageSwitcher.switchMessage'), status: 'info', dismissAfter: 3500 };
-    dispatch(notify(notification));
+
+    if (loadedComponent.current) {
+      const notification = <Partial<Notification>>{ message: t('languageSwitcher.switchMessage'), status: 'info', dismissAfter: 3500 };
+      dispatch(notify(notification));
+    } else {
+      loadedComponent.current = true;
+    }
   }, [language]);
 
   return { setLanguage, language, languageMenu };

@@ -1,9 +1,12 @@
-export interface PersonalInfoModel {
-  firstName: string;
-  lastName: string;
-  birthDate: Date;
-  mobileNumber: string;
-  driverLicense: string;
+interface PersonalInfo {
+  fullName: string,
+  birthDate: string,
+  mobileNumber: string,
+  driverLicense: string,
+
+  addressLine: string,
+  municipalityLine: string,
+  countryLine: string
 }
 
-export default PersonalInfoModel;
+export default PersonalInfo;

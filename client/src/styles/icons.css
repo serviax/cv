@@ -1,18 +1,27 @@
-
 .iconb {
   background-size: contain;
   background-position: 50%;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
-.icon {
+ .icon {
   background-size: contain;
   background-position: 50%;
   background-repeat: no-repeat;
-  position: relative;
-  display: inline-block;
+
+  /*position: relative;
+  display: inline-flex;
   width: 100%;
-  height: 100%;
+  height: 100%; */
+} 
+
+.has-icon-filler {
+  width: 100%;
+  height: 100%;;
+}
+
+.icon-primary-color {
+  filter: invert(60%) sepia(58%) saturate(3612%) hue-rotate(133deg) brightness(104%) contrast(101%);
 }
 
 .icon-x-small {
@@ -54,10 +63,50 @@
   content: '\00a0';
 }
 
-.icon-expand-more {
-  background-image: url('../../public/icons/expand_more.svg');
+.icon-badge {
+  background-image: url('../../public/icons/badge.svg');
+}
+
+.icon-birthday {
+  background-image: url('../../public/icons/birthday.svg');
+}
+
+.icon-car {
+  background-image: url('../../public/icons/car.svg');
 }
 
 .icon-expand-less {
   background-image: url('../../public/icons/expand_less.svg');
+}
+
+.icon-expand-more {
+  background-image: url('../../public/icons/expand_more.svg');
+}
+
+.icon-home {
+  background-image: url('../../public/icons/home.svg');
+}
+
+.icon-language {
+  background-image: url('../../public/icons/language.svg');
+}
+
+.icon-mobile-phone {
+  background-image: url('../../public/icons/mobile_phone.svg');
+}
+
+.icon-school {
+  background-image: url('../../public/icons/school.svg');
+}
+
+.icon-self-learn {
+  background-image: url('../../public/icons/self_learn.svg');
+}
+
+.icon-tag {
+  background-image: url('../../public/icons/tag.svg');
+}
+
+.icon-work {
+  background-image: url('../../public/icons/work.svg');
 }

@@ -1,4 +1,4 @@
-export interface Address {
+interface AddressResponse {
   street: string;
   houseNumber: string;
   numberExtension: string;
@@ -9,4 +9,4 @@ export interface Address {
   longitude: number;
 }
 
-export default Address;
+export default AddressResponse;
