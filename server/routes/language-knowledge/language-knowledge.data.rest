@@ -23,5 +23,42 @@ Content-Type: application/json
 {
   "languageCode": "nl",
   "language": "Nederlands",
-  "level": "moedertaal"
+  "level": 5,
+  "order": 1
+}
+
+###
+POST http://localhost:7000/api/language-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "languageCode": "nl",
+  "language": "Engels",
+  "level": 4,
+  "order": "2"
+}
+
+###
+POST http://localhost:7000/api/language-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "languageCode": "nl",
+  "language": "Frans",
+  "level": 3,
+  "order": "3"
+}
+
+###
+POST http://localhost:7000/api/language-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "languageCode": "nl",
+  "language": "Duits",
+  "level": 1,
+  "order": "4"
 }

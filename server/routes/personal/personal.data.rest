@@ -26,6 +26,7 @@ Content-Type: application/json
   "birthDate": "1983-09-05",
   "mobileNumber": "0498/47.74.10",
   "driverLicense": "type B",
+  "email": "servi@telenet.be",
   "address" : {
     "street": "Leo Meulemansstraat",
     "houseNumber": "3",

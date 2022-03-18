@@ -1,6 +1,5 @@
 import mongoose, { SchemaDefinitionProperty } from 'mongoose';
 
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const defaultTransform = (doc: any, returnedObj: any) => {
   returnedObj.id = returnedObj._id.toString();

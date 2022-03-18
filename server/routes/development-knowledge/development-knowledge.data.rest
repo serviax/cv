@@ -25,5 +25,34 @@ Content-Type: application/json
   "usedInProject": true,
   "followedTraining": true,
   "usedInLastYear": true,
-  "usedInPersonalProject": true
+  "usedInPersonalProject": true,
+  "level": 5
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "Node.JS (Express)",
+  "usedInProject": false,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 2
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "CSS / SASS",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 3
 }

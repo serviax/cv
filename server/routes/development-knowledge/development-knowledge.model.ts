@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 const DevelopmentKnowledgeSchema = new Schema({
   technology: { type: String, required: true },
+  level: { type: Number, required: true, min: 0, max: 5 },
   usedInProject: Boolean,
   followedTraining: Boolean,
   usedInLastYear: Boolean,

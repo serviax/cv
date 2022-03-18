@@ -27,4 +27,29 @@ content-type: application/json
 }
 
 ###
+POST http://localhost:7000/api/update-knowledges/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "year" : 2022,
+  "type": "training",
+  "description": "Full Stack open 2022 : deep-dive training on React, Express, Redux and GraphQL"
+}
+
+###
+POST http://localhost:7000/api/update-knowledges/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "year" : 2022,
+  "type": "home-project",
+  "description": "Online C.V. met gebruik van React, Express, Redux, Sass, MongoDB and Azure cloud"
+}
+
+
+###
 GET http://localhost:7000/api/update-knowledges/

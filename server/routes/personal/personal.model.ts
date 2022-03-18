@@ -25,6 +25,17 @@ const PersonSchema = new Schema({
       message: (props: ValidatorProps) => `${props.value} is not a date in the past. A birthdate can only be in the past.`
     }
   },
+  email: {
+    type: String,
+    required: true,
+    validate: {
+      validator: (value: string) => {
+        const regex = new RegExp('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$', 'ig');
+        return value.match(regex);
+      },
+      message: (props: ValidatorProps) => `mobile number ${props.value} is not in correct format. Mobile number should have at least ${NODE_ENVS.MINIMUM_PHONE_NUMBER_LENGTH} digits`
+    }
+  },
   address: AddressSchema,
   mobileNumber: {
     type: String,

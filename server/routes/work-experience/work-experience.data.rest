@@ -20,16 +20,65 @@ Authorization: Bearer {{authToken}}
 
 {
   "languageCode": "nl",
-  "startDate": "2020-12-15",
-  "description": "working on stuff",
+  "startDate": "2006-09-01",
+  "endDate": "2006-12-31",
+  "companyName": "Bureau Van Dijk Electronic Publishing",
+  "description": "Verantwoordelijk voor het uitbreiden en onderhouden van bestaande webapplicaties met nieuwe requirements of bugfixes. "
+}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "languageCode": "nl",
+  "startDate": "2007-01-01",
+  "endDate": "2011-11-01",
+  "companyName": "Materialise Dental",
+  "description": "Materialise dental bouwt software voor orthodonisten en print gebitsmallen in 3D",
   "projects": [
       {
-        "description" : "do some stuff",
-        "tasks" : ["one thing", "another thing"]
+        "title": "Simplant High-End Applicatie ",
+        "role": "developer",
+        "tasks" : [
+          "Ontwerpen en beheren van gebruiksvriendelijke installatie-paketten en beheren van release scripts", 
+          "Implementeren van kleinere requirements en oplossen van bugs",
+          "Laatste ondersteuningspunt voor klanten"],
+        "keywords" : ["C++", "SVN", "MSI", "FinalBuilder","InstallShield"],
+        "order": "1",
+        "startDate": "2007-01-01",
+        "endDate": "2008-12-31"
+      },
+      {
+        "title": "Online Ordering Management systeem",
+        "role": "software developer / (beperkt) project manamagent",
+        "tasks" : [
+          "Architectuur mee ontwikkeld voor Online Ordering Shop in overleg", 
+          "Volledige development inclusief ms SQL database (oplossen van bugs, onderhoud, uitbreidingen, nieuwe requirements)",
+          "Ontwerp en beheer van release scripts en installers",
+          "Projectbeheer van tax webservice"
+          ],
+        "keywords" : ["C#", ".NET", "ASMX", "WCF","WF", "Linq", "MS SQL", "HTML", "AJAX", "javascript", "CSS", "SVN"],
+        "order": "2",
+        "startDate": "2007-01-01",
+        "endDate": "2010-12-31"
+      },
+            {
+        "title": "Simplant Basic/Go",
+        "role": "software developer ",
+        "tasks" : [
+          "Architectuur mee uitdenken in overleg met andere senior developers", 
+          "Ontwikkeling van de eerste versie van deze applicatie",
+          "implementeren van een zeer gebruiksvriendelijke klantgerichte visueel aantrekkelijk interface voorzien van (WPF-)animaties",
+          "Ontwerp en beheer van release scripts"
+          ],
+        "keywords" : ["C#", ".NET", "WCF", "MVVM", "WPF", "SVN"],
+        "order": "3",
+        "startDate": "2011-01-01",
+        "endDate": "2011-11-01"
       }
-  ],
-  "keywords" : ["C++", "Cobol"]
-
+  ]
 }
 
 ### 
