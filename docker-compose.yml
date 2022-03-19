@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  cv-server:
+    container_name: cv-container
+    image: servaasservi/cv
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      MONGO_DB_CONNECTION_STRING: ${MONGO_DB_CONNECTION_STRING}
+      MINIMUM_PHONE_NUMBER_LENGTH: ${MINIMUM_PHONE_NUMBER_LENGTH}
+      TOKEN_ISS: ${TOKEN_ISS}
+      TOKEN_AUD: ${TOKEN_AUD}
+      DEFAULT_LANGUAGE: ${DEFAULT_LANGUAGE}
+      PORT: ${PORT}
+    ports:
+      - 80:${PORT}
+networks:
+  default:
+    name: cv-network
