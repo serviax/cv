@@ -1,27 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { BACKEND_URL } from '../common/config';
-import axios, { AxiosResponse } from 'axios';
-import { KeyWord } from './keywords.model';
+import React from 'react';
+import Section from '../Section/Section';
+import { useTranslation } from '../translations';
+import useKeyWords from './useKeywords';
 
-function Keywords() {
-  const [keywords, keywordsSet] = useState<KeyWord[]>();
-
-
-  useEffect(() => {
-    async function loadKeywords() {
-      const result: AxiosResponse<KeyWord[]> = await axios.get(BACKEND_URL + '/api/keywords');
-      keywordsSet(result.data);
-    }
-
-    loadKeywords();
-  }, []);
+const Keywords = () => {
+  const { keyWords } = useKeyWords();
+  const { t } = useTranslation();
 
   return (
-    <div>
-      <h1>Keywords</h1>
-      {keywords?.map((x, index) => <span key={index}>{x.keyWord} </span>)}
-    </div>
-  );
-}
+    <Section iconName='tag' title={t('keywords.title')}>
+      <div>{keyWords?.map(k => k.keyWord).join(', ')}</div>
+    </Section>);
+};
 
 export default Keywords;

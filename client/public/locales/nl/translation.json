@@ -1,9 +1,55 @@
 {
   "header": {
-    "intro" : "Welkom op de cv van Servaas Phlips"
+    "intro": "Welkom op de cv van Servaas Phlips"
+  },
+  "languageSwitcher": {
+    "languageChoice": "Taalkeuze (switch language)",
+    "switchMessage": "De taal is veranderd naar het Nederlands."
   },
   "personalInfo": {
+    "title": "Persoonlijke gegevens",
+    "profilePicture": "profielfoto",
     "firstName": "voornaam",
-    "lastName": "naam"
+    "lastName": "naam",
+    "name": "naam",
+    "address": "adres",
+    "mobileNumber": "GSM-nummer",
+    "driverLicense": "rijbewijs",
+    "birthDate": "geboortedatum",
+    "email": "e-mail",
+    "checkHuman": "Om gedetailleerde persoonlijke gegevens te zien met u eerst bevestigen dat u geen robot bent."
+  },
+  "keywords": {
+    "title": "Sleutelwoorden"
+  },
+  "knowledges": {
+    "title": "Development kennis",
+    "legend": "Legenda",
+    "learned": "zelf-geleerd / training gevolgd",
+    "recentlyUsed": "gebruikt in laatste 12 maanden",
+    "usedInProject": "gebruikt in project op het werk",
+    "usedInHomeProject": "gebruikt in thuis/hobby project"
+  },
+  "languages": {
+    "title": "Talenkennis"
+  },
+  "experiences": {
+    "title": "werkervaring",
+    "today" : "vandaag"
+  },
+  "education": {
+    "title": "Opleiding",
+    "explanation": "Tussen haakjes vindt u de huidige benaming van deze opleiding en de titel."
+  },
+  "learnings": {
+    "title": "Bijscholing",
+    "legend": "Legenda",
+    "learned": "zelf-geleerd / training gevolgd",
+    "conference": "conferentie",
+    "homeProject": "thuis/hobby-project",
+    "certificate": "certificaat"
+  },
+  "errors": {
+    "failedFetch" : "De gegevens over {{topic}} konden niet opgehaald worden van de server"
   }
 }

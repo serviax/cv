@@ -2,8 +2,55 @@
   "header": {
     "intro" : "Welcome on the C.V. of Servaas Phlips"
   },
+  "languageSwitcher": {
+    "languageChoice": "Language choice (switch language)",
+    "switchMessage": "Language has been switched to English."
+  },
   "personalInfo": {
-    "firstName": "name",
-    "lastName": "surname"
+    "title": "Personal data",
+    "profilePicture": "profile picture",
+    "firstName": "surname",
+    "lastName": "name",
+    "name": "full name",
+    "address": "address",
+    "mobileNumber": "mobile number",
+    "driverLicense": "driver license",
+    "birthDate": "birth date",
+    "email": "email",
+    "checkHuman": "To see detailled personal data you first have to confirm you are not a robot."
+  },
+  "keywords": {
+    "title": "keywords"
+  },
+  "knowledges": {
+    "title": "Development knowledge",
+    "legend": "Legend",
+    "learned": "self-taught / follwed training",
+    "recentlyUsed": "used in last 12 months",
+    "usedInProject": "used in project at office",
+    "usedInHomeProject": "used in project at home"
+  },
+  "languages": {
+    "title": "Languages"
+    
+  },
+  "experiences": {
+    "title": "Work experience",
+    "today" : "present day"
+  },
+  "education": {
+    "title": "Education",
+    "explanation": "Translating a degree is never fully accurate, hence you find the original name here. Between parentheses is the name according to the Bologna Process."
+  },
+  "learnings": {
+    "title": "Learn",
+    "legend": "Legend",
+    "learned": "self-learn / training",
+    "conference": "conference",
+    "homeProject": "home-project",
+    "certificate": "certificate"
+  },
+  "errors": {
+    "failedFetch" : "Data about {{topic}} could not be retrieved from the server"
   }
 }

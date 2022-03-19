@@ -1,28 +1,30 @@
 import React from 'react';
 import './App.css';
 import 'bulma/css/bulma.min.css';
-import './styles/icons.css';
+import './styles/icons.scss';
 
 import PersonalInfo from './PersonalInfo/PersonalInfo';
 
-import { useTranslation } from './translations';
 import Keywords from './Keywords/Keywords';
 import Expierences from './experiences/experiences';
 import Notification from './Notifications/Notification';
 import LanguageSwitcher from './LanguageSelection/LanguageSwitcher';
+import Footer from './Footer/Footer';
+import Knowledges from './DevelopmentKnowledges/DevelopmentKnowledges';
+import LanguageKnowledges from './LanguageKnowledge/LanguageKnowledges';
+import Education from './Education/Education';
+import ProgressBar from './Progressbar/Progressbar';
+import Learnings from './Learnings/Learnings';
 
 
 function App() {
-
-  const { t } = useTranslation();
-
   const view = (
-    <>
+    <div className='has-background-light'>
       <div className='main'>
         <Notification />
 
 
-        <div className='language-switch'>
+        <div className='language-switch is-collapsed-for-print'>
           <LanguageSwitcher />
         </div>
 
@@ -35,10 +37,17 @@ function App() {
         <div className='container'>
           <PersonalInfo />
           <Keywords />
+          <Education />
+          <Knowledges />
+
           <Expierences />
+          <LanguageKnowledges />
+          <Learnings />
         </div>
       </div>
-    </>
+
+      <Footer />
+    </div>
   );
 
   return view;

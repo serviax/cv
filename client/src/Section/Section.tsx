@@ -8,14 +8,14 @@ interface ISectionProps {
 }
 
 const Section = ({ title, iconName, children, sideComponent }: ISectionProps) => {
-  const fullIconClassName = iconName != null ? `icon has-icon-filler icon-primary-color icon-x-large icon-${iconName}` : null;
+  const fullIconClassName = iconName != null ? `icon has-icon-filler icon-primary-color icon-large icon-${iconName}` : null;
 
   return (
     <div className='block card'>
       <div className='card-content'>
         <div className='content'>
           <div className='tile is-ancestor'>
-            <div className='tile is-vertical is-3 is-parent'>
+            <div className='tile is-vertical is-2 is-parent is-collapsed-for-print'>
               <div className='tile is-child'>
                 <div className='columns is-centered'>
                   <div className='column has-text-centered'>
@@ -23,7 +23,8 @@ const Section = ({ title, iconName, children, sideComponent }: ISectionProps) =>
                     {sideComponent}
                   </div>
                 </div>
-              </div></div>
+              </div>
+            </div>
             <div className='tile is-parent'>
               <div className='tile is-child'>
                 <h2 className='title is-2 has-text-primary is-capitalized'>{title}</h2>

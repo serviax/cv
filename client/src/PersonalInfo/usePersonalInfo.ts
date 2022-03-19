@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
-import PersonalInfoResponse from './PersonalInfoResponse.model';
-import { BACKEND_URL } from '../common/config';
+import PersonalInfoResponse from './PersonalInfoResponse';
+import { BACKEND_URL, IS_RECAPTCHA_DISABLED, LANGUAGES, RECAPTCHA_SITE_KEY } from '../common/config';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../common/store';
@@ -10,9 +10,15 @@ import PersonalInfo from './PersonalInfo.model';
 
 const usePersonalInfo = () => {
   const [user, userSet] = useState<PersonalInfo>();
+  const [isHuman, setIsHuman] = useState<boolean>(IS_RECAPTCHA_DISABLED != null);
   const dispatch = useDispatch();
   const { notify } = useNotifications();
   const language = useSelector((state: RootState) => state.language);
+  const langaugeSet = LANGUAGES.find(l => l.code == language);
+  const culture = langaugeSet?.culture;
+
+  const reCaptchaKey = RECAPTCHA_SITE_KEY;
+
 
   useEffect(() => {
     async function loadUserInfo() {
@@ -20,15 +26,23 @@ const usePersonalInfo = () => {
         const info: AxiosResponse<PersonalInfoResponse> = await axios.get(BACKEND_URL + '/api/personal/');
         if (info.status == 200) {
           const userData = info.data;
-          const userInfo = <PersonalInfo>{
-            fullName: userData.firstName + ' ' + userData.lastName,
-            addressLine: userData.address.street + ' ' + userData.address.houseNumber + ' ' + userData.address.numberExtension,
-            municipalityLine: userData.address.postalCode + ' ' + userData.address.municipality,
-            countryLine: 'Belgium',
-            birthDate: '5 september enzo 1983 ',
-            mobileNumber: userData.mobileNumber,
-            driverLicense: userData.driverLicense
-          };
+          const basicInfo = { fullName: userData.firstName + ' ' + userData.lastName };
+          let extraInfo = {};
+          if (isHuman) {
+            const birthDate = new Date(Date.parse(userData.birthDate)); 
+
+            extraInfo = {
+              addressLine: userData.address.street + ' ' + userData.address.houseNumber + ' ' + userData.address.numberExtension,
+              municipalityLine: userData.address.postalCode + ' ' + userData.address.municipality,
+              countryLine: '',
+              birthDate: birthDate.toLocaleDateString(culture),
+              mobileNumber: userData.mobileNumber,
+              driverLicense: userData.driverLicense,
+              email: userData.email,
+              emailLink: 'mailto:' + userData.email + '?subject=Online%20C.V.'
+            };
+          }
+          const userInfo = <PersonalInfo>{ ...basicInfo, ...extraInfo };
 
           userSet(userInfo);
         }
@@ -42,9 +56,9 @@ const usePersonalInfo = () => {
     }
 
     loadUserInfo();
-  }, [language]);
+  }, [language, isHuman]);
 
-  return { user };
+  return { user, isHuman, setIsHuman, reCaptchaKey, language };
 
 };
 

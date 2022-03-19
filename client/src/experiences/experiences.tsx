@@ -1,40 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { ExpierenceModel } from './experience.model';
+import Section from '../Section/Section';
+import Experience from './Experience';
+import useExperiences from './useExperiences';
+import { useTranslation } from '../translations';
 
-function Expierences() {
-  const [experiences, setExperiences] = useState<ExpierenceModel[]>();
+import './Experience.scss';
 
-
-  useEffect(() => {
-    // async function loadKeywords() {
-    //   const result: AxiosResponse<KeyWord[]> = await axios.get(BACKEND_URL + '/api/keywords');
-    //   keywordsSet(result.data);
-    // }
-    // loadKeywords();
-
-    // really dumb from me it's the back end that should resolve this we just pass a parameter the language
-    const myExperiences: ExpierenceModel[] = [
-      { description: 'working', company: 'Boondoggle', translations: [ {language: 'nl', translationMap: new Map([['description', 'werken'], ['company', 'boondoggle']])}] },
-      { description: 'sweating', company: 'Materialise Dental', translations: [] }];
-
-    setExperiences(myExperiences);
-  }, []);
+const Experiences = () => {
+  const { experiences } = useExperiences();
+  const { t} = useTranslation();
 
   return (
-    <div>
-      <h1 style={{margin:'10px', border: '1px solid green'}}>Expierence</h1>
+    <Section iconName='suitcase' title={t('experiences.title')}>
       <div>
-        {experiences?.map((x, index) => <div key={index}>
-          {doSomeShadyStuff(x.description, x)} for {x.company}
-        </div>)}
+
+        {experiences?.map((exp, index) => <Experience experience={exp} key={index}></Experience>)}
       </div>
-    </div>
+    </Section>
   );
-}
+};
 
 
-export default Expierences;
-
-function doSomeShadyStuff<T>(description: string, element: T): string {
-  return 'shady ' + description;
-}
+export default Experiences;

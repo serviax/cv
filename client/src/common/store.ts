@@ -12,17 +12,6 @@ const store = configureStore({
   }
 });
 
-// const rootReducer = combineReducers({
-//   language : LanguageSelectionReducer,
-//   notifications: notificationsReducer()
-// });
-
-// const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-// const store = createStore(rootReducer,   (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__());
-
 
 console.log('store state', store.getState());
 

@@ -40,7 +40,7 @@ const DropdownMenu = ({ menu }: IDropdownMenuProps) => {
               if (menu.selectedItem != null && item.key === menu.selectedItem.key)
                 itemClassName += ' has-background-dark has-text-light';
               return (
-                <a key={item.key} className={itemClassName} onClick={() => item.onSelect && item.onSelect(item) && menu.selectedItem == item}>
+                <a key={item.key} role='menuitem' className={itemClassName} onClick={() => item.onSelect && item.onSelect(item) && menu.selectedItem == item}>
                   {item.icon && (<span className={item.icon}></span>)}
                   {item.value}
                 </a>

@@ -18,7 +18,7 @@ const useLanguageSwitcher = () => {
   };
 
   const items = LANGUAGES.map<DropdownMenuItemModel>(
-    code => <DropdownMenuItemModel>{ icon: `lng lng-${code}`, value: code.toUpperCase(), key: code, onSelect: () => setLanguage(code) }
+    lng => <DropdownMenuItemModel>{ icon: `lng lng-${lng.code}`, value: lng.code.toUpperCase(), key: lng.code, onSelect: () => setLanguage(lng.code) }
   );
 
   const languageMenu: DropdownModel = {

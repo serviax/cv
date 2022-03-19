@@ -3,6 +3,8 @@ interface PersonalInfo {
   birthDate: string,
   mobileNumber: string,
   driverLicense: string,
+  email: string,
+  emailLink: string,
 
   addressLine: string,
   municipalityLine: string,
