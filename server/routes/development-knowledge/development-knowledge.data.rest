@@ -21,7 +21,7 @@ Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
 {
-  "technology" : "C#",
+  "technology" : "C# / .Net (core)",
   "usedInProject": true,
   "followedTraining": true,
   "usedInLastYear": true,
@@ -35,12 +35,55 @@ Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
 {
+  "technology" : "Javascript / Typescript",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 4
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "React",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 3
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "Angular",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": false,
+  "level": 3
+}
+
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
   "technology" : "Node.JS (Express)",
   "usedInProject": false,
   "followedTraining": true,
   "usedInLastYear": true,
   "usedInPersonalProject": true,
-  "level": 2
+  "level": 3
 }
 
 ###
@@ -54,5 +97,187 @@ Content-Type: application/json
   "followedTraining": true,
   "usedInLastYear": true,
   "usedInPersonalProject": true,
+  "level": 4
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "Azure",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 2
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "Git (Gitflow)",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 4
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "Unit testing",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": false,
+  "level": 4
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "Redux",
+  "usedInProject": false,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": false,
   "level": 3
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "Docker",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 2
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "REST(ful) API",
+  "usedInProject": true,
+  "followedTraining": true,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 4
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "NOSQL (Mongo)",
+  "usedInProject": false,
+  "followedTraining": false,
+  "usedInLastYear": true,
+  "usedInPersonalProject": true,
+  "level": 1
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "AngularJS",
+  "usedInProject": true,
+  "followedTraining": false,
+  "usedInLastYear": false,
+  "usedInPersonalProject": false,
+  "level": 4
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "(ms) SQL",
+  "usedInProject": true,
+  "followedTraining": false,
+  "usedInLastYear": false,
+  "usedInPersonalProject": false,
+  "level": 3
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "ORM (Entity Framework)",
+  "usedInProject": true,
+  "followedTraining": false,
+  "usedInLastYear": false,
+  "usedInPersonalProject": false,
+  "level": 3
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "CI/CD (Azure devops, Bamboo, ...)",
+  "usedInProject": true,
+  "followedTraining": false,
+  "usedInLastYear": true,
+  "usedInPersonalProject": false,
+  "level": 3
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "oAUTH (Microsoft Identity)",
+  "usedInProject": true,
+  "followedTraining": false,
+  "usedInLastYear": true,
+  "usedInPersonalProject": false,
+  "level": 2
+}
+
+###
+POST http://localhost:7000/api/development-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "technology" : "DI / IoC",
+  "usedInProject": true,
+  "followedTraining": false,
+  "usedInLastYear": true,
+  "usedInPersonalProject": false,
+  "level": 4
 }

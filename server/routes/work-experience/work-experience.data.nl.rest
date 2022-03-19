@@ -1,0 +1,396 @@
+// @name auth
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token HTTP/1.1
+Content-type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id={{clientId}}
+&client_secret={{clientSecret}}
+&scope={{scope}}
+###
+@authToken = {{auth.response.body.access_token}}
+
+###
+DELETE http://localhost:7000/api/work-experiences/
+Authorization: Bearer {{authToken}}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "languageCode": "nl",
+  "startDate": "2006-09-01",
+  "endDate": "2006-12-31",
+  "companyName": "Bureau Van Dijk Electronic Publishing",
+  "description": "Verantwoordelijk voor het uitbreiden en onderhouden van bestaande webapplicaties met nieuwe requirements of bugfixes. "
+}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+   "languageCode":"nl",
+   "startDate":"2007-01-01",
+   "endDate":"2011-11-01",
+   "companyName":"Materialise Dental",
+   "description":"Materialise Dental bouwt software voor orthodonisten en tandartsen die hen toelaat om een tandheelkundige operatie in 3D voor te bereiden. Er kunnen begeleidende unieke gebitsmallen worden geproduceerd die in de applicatie kunnen besteld worden.",
+   "projects":[
+      {
+         "title":"Simplant High-End Applicatie ",
+         "role":"Software Developer",
+         "tasks":[
+            "Ontwerpen en beheren van gebruiksvriendelijke installatie-paketten en beheren van release scripts",
+            "Implementeren van kleinere requirements en oplossen van bugs",
+            "Laatste ondersteuningspunt voor klanten"
+         ],
+         "keywords":[
+            "C++",
+            "SVN",
+            "MSI",
+            "FinalBuilder",
+            "InstallShield"
+         ],
+         "order":"3",
+         "startDate":"2007-01-01",
+         "endDate":"2008-11-31"
+      },
+      {
+         "title":"Online Ordering Management systeem",
+         "role": "Software developer / (beperkt) Project Management",
+         "tasks":[
+            "Architectuur mee ontwikkeld voor Online Ordering Shop in overleg",
+            "Volledige development inclusief ms SQL database (oplossen van bugs, onderhoud, uitbreidingen, nieuwe requirements)",
+            "Ontwerp en beheer van release scripts en installers",
+            "Projectbeheer van tax webservice"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "ASMX",
+            "WCF",
+            "WF",
+            "Linq",
+            "MS SQL",
+            "HTML",
+            "AJAX",
+            "javascript",
+            "CSS",
+            "SVN"
+         ],
+         "order":"2",
+         "startDate":"2007-01-01",
+         "endDate":"2010-12-31"
+      },
+      {
+         "title":"Simplant Basic/Go",
+         "role":"Software Developer ",
+         "tasks":[
+            "Architectuur mee uitdenken in overleg met andere senior developers",
+            "Ontwikkeling van de eerste versie van deze applicatie",
+            "Implementeren van een zeer gebruiksvriendelijke klantgerichte visueel aantrekkelijk interface voorzien van (WPF-)animaties",
+            "Ontwerp en beheer van release scripts"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "WCF",
+            "MVVM",
+            "WPF",
+            "SVN"
+         ],
+         "order":"1",
+         "startDate":"2011-01-01",
+         "endDate":"2011-11-01"
+      },
+      {
+         "title":"Trainingen",
+         "role":"organisator",
+         "tasks":[
+            "Inplannen van interne technische trainingen voor alle developers"
+         ],
+         "keywords":[
+            "trainingen"
+         ],
+         "order":"4",
+         "startDate":"2010-01-01",
+         "endDate":"2011-12-31"
+      }
+   ]
+}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+   "languageCode":"nl",
+   "startDate":"2011-11-01",
+   "endDate":"2016-11-07",
+   "companyName":"Kapsch (voorheen Prodata Mobillity Systems)",
+   "description":"Kapsch maakt software voor het openbaar vervoer. Het software pakket bevat onder andere manieren om berichten naar chauffeurs te sturen, voertuigen live te volgen en omleidingen in te plannen.",
+   "projects":[
+      {
+         "title":" werkgroep",
+         "role":"Organisator",
+         "tasks":[
+            "Bijeenbrengen van alle SCRUM masters in een maandelijkse werkgroep"
+         ],
+         "order":"5",
+         "keywords":[
+            "Agile",
+            "SCRUM"
+         ],
+         "startDate":"2014-01-01",
+         "endDate":"2015-12-31"
+      },
+      {
+         "title":" ITS BO",
+         "role":"Scrum Master",
+         "tasks":[
+            "Verdere ontwikkeling van een Obstructions & Detours manager, stopzone manager, PoiTracker en Service Support Manager",
+            "Teamleden coachen",
+            "Bewaker van SCRUM methodologie en organisator van de scrum ceremonies (meetings)"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "WCF",
+            "WPF",
+            "Git",
+            "NServiceBus",
+            "REST",
+            "WebApi",
+            "Teamcity",
+            "Oracle",
+            "ms SQL",
+            "Entity Framework"
+         ],
+         "order":"1",
+         "startDate":"2012-09-05",
+         "endDate":"2016-11-01"
+      },
+      {
+         "title":" ITS BO",
+         "role":"Teamlead",
+         "tasks":[
+            "Meehelpen bij de (verdere) ontwikkeling van PoiTracker en Service Support Manager",
+            "Dagelijkse opvolging van het team",
+            "Basis project management en opstellen planning"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "WCF",
+            ".WPF",
+            "SVN",
+            "MSMQ",
+            "Oracle",
+            "ms SQL",
+            "Entity Framework"
+         ],
+         "order":"2",
+         "startDate":"2012-09-05",
+         "endDate":"2013-07-01"
+      },
+      {
+         "title":" ITS PoiTracker",
+         "role":"Lead Developer",
+         "tasks":[
+            "Uitwerken architectuur PoiTracker",
+            "Ontwikkeling van de eerste geaccepteerde versie van deze applicatie",
+            "Adviseur en rapporteerder planning"
+         ],
+         "keywords":[
+            "C#",
+            "WPF",
+            "WCF",
+            ".Net",
+            "SVN",
+            "Oracle",
+            "ms SQL",
+            "Entity Framework"
+         ],
+         "order":"3",
+         "startDate":"2012-03-04",
+         "endDate":"2012-09-05"
+      },
+      {
+         "title":"Johannesburg AFC",
+         "role":"Software Developer",
+         "tasks":[
+            "Verwerking EMV (Eurocard-Mastercard-Visa) transacties",
+            "Implementeren van kleinere requirements en oplossen van bugs",
+            "Ontwerp en beheer van release scripts en beheer van deze releases"
+         ],
+         "keywords":[
+            "C#",
+            "WPF",
+            "WCF",
+            ".Net",
+            "SVN",
+            "WiX",
+            "Oracle",
+            "ms SQL"
+         ],
+         "order":"4",
+         "startDate":"2011-01-01",
+         "endDate":"2012-03-04"
+      }
+   ]
+}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+   "languageCode":"nl",
+   "startDate":"2016-11-08",
+   "companyName":"Boondoggle",
+   "description":"Boondoggle biedt web development en marketing oplossingen voor bedrijven. De meeste klanten bevinden zich in de financiële sector.",
+   "projects":[
+      {
+         "title":" Crefius hpyothekensite",
+         "role":"Lead Developer",
+         "tasks":[
+            "Ontwikkeling van white-label product voor klantenzone hypotheken",
+            "Coördineren met partnerbedrijf",
+            "Analyseren en uitdenken architectuur"
+         ],
+         "keywords":[
+            "React",
+            "Redux",
+            "Next.JS",
+            "CSS/SASS",
+            "Git",
+            "REST",
+            "Typescript",
+            "Azure"
+         ],
+         "order":"1",
+         "startDate":"2022-04-01"
+      },
+      {
+         "title":" Dogglepret (interne applicatie voor timetracking, vakantiedagen, budgetten, projecten, ...)",
+         "role":"Lead Developer",
+         "tasks":[
+            "Onderhoud bestaande applicatie",
+            "Contacteren gebruikers en noden uitklaren",
+            "Herwerken bestaande code naar modernere standaarden",
+            "Releases plannen en deployen"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "Angular",
+            "Git",
+            "Bamboo",
+            "Typescript",
+            "Entity Framework",
+            "CSS",
+            "ms SQL"
+         ],
+         "order":"2",
+         "startDate":"2021-09-01"
+      },
+      {
+         "title":" Argenta.NL publieke site en online bankomgeving",
+         "role":"Lead Developer",
+         "tasks":[
+            "Wekelijks contactmomenten met klant",
+            "Verantwoordelijk voor technische analyse en schattingen",
+            "Ontwikkelen nieuwe features en onderhouden bestaande features",
+            "Mee functioneel uitdenken nieuwe requirements",
+            "Aansturen development team",
+            "Aligneren met andere partijen",
+            "Documenteren technische werking website"
+         ],
+         "keywords":[
+            "C#",
+            "AngularJS",
+            "Javascript",
+            ".Net",
+            "Git",
+            "REST",
+            "WebApi",
+            "DI",
+            "Sitecore"
+         ],
+         "order":"3",
+         "startDate":"2018-01-01",
+         "endDate":"2021-12-31"
+      },
+      {
+         "title":"Bank delen Cadelam",
+         "role":"Software Developer",
+         "tasks":[
+            "Ondersteunen bestaande ontwikkeling",
+            "Ondersteuning junior developer",
+            "Face-to-face besprekingen met de klant"
+         ],
+         "keywords":[
+            "C#",
+            ".Net",
+            "Git",
+            "REST",
+            "ms SQL",
+            "CSS",
+            "WebApi",
+            "Sitecore"
+         ],
+         "order":"4",
+         "startDate":"2017-06-01",
+         "endDate":"2017-12-31"
+      },
+      {
+         "title":"Moneyou savings en hypotheken",
+         "role":"Software Developer",
+         "tasks":[
+            "Ondersteunen bestaande ontwikkeling",
+            "Inschatten en mee ontwikkelen",
+            "Samenwerken met andere bedrijven"
+         ],
+         "keywords":[
+            "C#",
+            ".Net",
+            "AngularJS",
+            "REST",
+            "Typescript",
+            "CSS",
+            "WebApi",
+            "Sitecore"
+         ],
+         "order":"5",
+         "startDate":"2016-11-08",
+         "endDate":"2017-07-01"
+      },
+      {
+         "title":"verschillende kleinere projecten voor Elia, Payconicq, Evi Van Lanschot, ...",
+         "role":"Software Developer",
+         "tasks":[
+            "Ondersteunen bestaande ontwikkeling",
+            "Inschatten en mee oplossingen bedenken met de klant"
+         ],
+         "keywords":[
+            "C#",
+            ".Net",
+            "Docker",
+            "Azure devops",
+            "REST",
+            "Sitecore"
+         ],
+         "order":"6",
+         "startDate":"2016-11-08",
+         "endDate":"2021-12-31"
+      }
+   ]
+}
+
+
+### 
+GET  http://localhost:7000/api/work-experiences/nl

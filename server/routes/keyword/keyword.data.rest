@@ -12,6 +12,14 @@ grant_type=client_credentials
 @authToken = {{auth.response.body.access_token}}
 
 ###
+###
+#
+#
+# NEDERLANDS
+#
+#
+###
+###
 DELETE http://localhost:7000/api/keywords/
 Authorization: Bearer {{authToken}}
 
@@ -32,7 +40,7 @@ content-type: application/json
 
 {
   "languageCode" : "nl",
-  "keyWord": "SCRUM Master (Agile Methodologies)"
+  "keyWord": "SCRUM Master (Agile principes)"
 }
 
 ###
@@ -62,8 +70,108 @@ content-type: application/json
 
 {
   "languageCode" : "nl",
-  "keyWord": "Meer dan 10 jaar ervaring"
+  "keyWord": "Test-gerichte ontwikkeling"
 }
 
 ###
-GET http://localhost:7000/api/keywords/
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "Software bedrijven"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "15 jaar ervaring"
+}
+
+###
+###
+#
+#
+# ENGLISH
+#
+#
+###
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Full stack developer"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "SCRUM Master (Agile Methods)"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Analytical"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Focus on quality"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Test-oriented"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Software centric companies"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "15 years experience"
+}
+
+
+
+###
+GET http://localhost:7000/api/keywords/en

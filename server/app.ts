@@ -3,8 +3,10 @@ import NODE_ENVS from './config';
 
 import cors from 'cors';
 import express from 'express';
+import serveStatic from 'serve-static';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
+import compression from 'compression';
 
 import authenticationRouter from './middlewares/middleware.authentication';
 import personalRouter from './routes/personal/personal.router';
@@ -19,17 +21,24 @@ import { UpdateKnowledgeSchema } from './routes/update-knowledge/update-knowledg
 import educationRouter from './routes/education/education.router';
 
 const app = express();
+console.log('starting server');
+console.log('settings', NODE_ENVS.PORT, NODE_ENVS.MONGO_DB_CONNECTION_STRING);
 
 mongoose.connect(NODE_ENVS.MONGO_DB_CONNECTION_STRING)
   .then(() => {
-    const PORT = Number(NODE_ENVS.PORT) ?? 7000;
+    const PORT = Number(NODE_ENVS.PORT) ?? 8080;
 
     app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
     app.use(morgan(':method :status :url :response-time ms'));
+    app.use(compression());
 
     app.use(authenticationRouter);
+
+    app.get('/api/hello', (request, response) => {
+      response.send('hello there, the server is running').end();
+    });
 
     app.use('/api/personal', personalRouter);
 
@@ -49,6 +58,7 @@ mongoose.connect(NODE_ENVS.MONGO_DB_CONNECTION_STRING)
 
     app.use('/api/education', educationRouter);
 
+    app.use(serveStatic('static'));
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     app.use(function (err: any, req: any, res: any, next: any) {
