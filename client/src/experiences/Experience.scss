@@ -1,0 +1,99 @@
+.experiences {
+
+  .experience-header {
+    width: 100%;
+  }
+
+  .command-buttons {
+    
+    .icon {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    @media print {
+      display: none !important;
+    }
+  }
+
+  .icon.opening {
+    transition: transform .5s;
+    transform: rotate(180deg);
+  }
+  
+  .icon.closing {
+    /* be aware a component that has been transformed will now become untransformed */
+    transition: transform .4s;
+    /* redundant, but for clarity */
+    transform: rotate(0deg);
+  }
+
+  .card-content {
+    &.opening {
+      transition: all 0.5s ease-in;
+      max-height: 5000px;
+      padding: 1.5rem;
+    }
+
+    &.closing {
+      max-height: 0.25rem;
+      overflow: hidden;
+      padding: 0rem 1.5rem;
+      transition: all 0.5s ease-out;
+    }
+  }
+
+
+  .project-details {
+    div.content div {
+      padding-top: 0.5rem;
+    }
+
+    .icon-text {
+      align-items: center;
+
+      .icon {
+        margin-right: 1em;
+        align-self: top;
+      }
+    }
+
+    .columns {
+      align-items: center;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: "- ";
+    }
+  }
+
+  @media print {
+    .card {
+      border: none;
+    }
+
+    .box {
+      border: none;
+      border-bottom: 1px solid hsl(0, 0%, 71%);
+      border-radius: 0%;
+      box-shadow: none;
+      margin-bottom: 0.25rem !important;
+      padding-top: 0.1rem !important;
+      padding-bottom: 0.1rem !important;
+      padding-right: 0.25rem !important;
+    }
+
+    .box:last-child {
+      border-bottom: none;
+    }
+  
+    .has-background-light {
+      background-color: white;
+    }
+  }
+}

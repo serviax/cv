@@ -1,0 +1,40 @@
+# @name auth
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token HTTP/1.1
+Content-type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id={{clientId}}
+&client_secret={{clientSecret}}
+&scope={{scope}}
+
+###
+@authToken = {{auth.response.body.access_token}}
+
+###
+DELETE http://localhost:7000/api/personal/
+Authorization: Bearer {{authToken}}
+
+###
+POST  http://localhost:7000/api/personal/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "firstName": "Servaas",
+  "lastName": "Phlips",
+  "title": "Ing.",
+  "birthDate": "1983-09-05",
+  "mobileNumber": "0498/47.74.10",
+  "driverLicense": "type B",
+  "email": "servi@telenet.be",
+  "address" : {
+    "street": "Leo Meulemansstraat",
+    "houseNumber": "3",
+    "numberExtension": "bus 103",
+    "municipality": "Herent",
+    "postalCode": "3020",
+    "country": "BE",
+    "latitude": 50.90269488722662,
+    "longitude": 4.673945709175088
+  }
+}

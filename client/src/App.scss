@@ -1,0 +1,33 @@
+.is-collapsed {
+  display: none !important;
+}
+
+@media print {
+  .is-collapsed-for-print {
+    display: none !important;
+  }
+
+  .columns {
+    margin-bottom: 0.2rem !important;
+
+    .column {
+      margin-bottom: 0.2rem !important;
+    }
+  }
+  
+  .hero-body {
+    padding: 0.5rem !important;
+  }
+
+  .card {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .content {
+    margin-bottom: 0.2rem !important;
+  }
+
+  .card-content {
+    padding: 0.2rem !important;
+  }
+}

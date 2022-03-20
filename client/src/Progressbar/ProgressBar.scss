@@ -1,0 +1,87 @@
+.is-progress-bar {
+  border: 1px solid  hsl(171, 100%, 41%);
+  border-radius: 15%;
+
+  @media print {
+    border-color: black;
+  }
+
+  &-small {
+    @extend .is-progress-bar;
+    width: 2rem;
+    height: 0.75rem;
+  }
+
+  &-medium {
+    @extend .is-progress-bar;
+    width: 4rem;
+    height: 1.5rem;
+  }
+
+  .is-progress-bar-content-filled {
+    display: block;
+    height: 100%;
+    background-color: hsl(171, 100%, 41%);
+    border-top-left-radius: 15%;
+    border-bottom-left-radius: 15%;
+
+    @media print {
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important; 
+      background-color: black !important;
+    }
+
+    &-10 {
+      @extend .is-progress-bar-content-filled;
+      width: 10%
+    }
+
+    &-20 {
+      @extend .is-progress-bar-content-filled;
+      width: 20%
+    }
+
+    &-30 {
+      @extend .is-progress-bar-content-filled;
+      width: 30%
+    }
+  
+    &-40 {
+      @extend .is-progress-bar-content-filled;
+      width: 40%
+    }
+  
+    &-50 {
+      @extend .is-progress-bar-content-filled;
+      width: 50%
+    }
+
+    &-60 {
+      @extend .is-progress-bar-content-filled;
+      width: 60%
+    }
+
+    &-70 {
+      @extend .is-progress-bar-content-filled;
+      width: 70%
+    }
+  
+    &-80 {
+      @extend .is-progress-bar-content-filled;
+      width: 80%
+    }
+
+    &-90 {
+      @extend .is-progress-bar-content-filled;
+      width: 90%
+    }
+  
+    &-100 {
+      @extend .is-progress-bar-content-filled;
+      width: 100%;
+      border-top-right-radius: 15%;
+      border-bottom-right-radius: 15%;
+    }
+  }
+}
+

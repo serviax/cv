@@ -1,0 +1,28 @@
+# @name auth
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token HTTP/1.1
+Content-type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id={{clientId}}
+&client_secret={{clientSecret}}
+&scope={{scope}}
+
+###
+@authToken = {{auth.response.body.access_token}}
+
+###
+DELETE http://localhost:7000/api/education/
+Authorization: Bearer {{authToken}}
+
+###
+POST  http://localhost:7000/api/education/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "startYear" : 2002,
+  "endYear" : 2006,
+  "schoolName": "Hogeschool Gent",
+  "name": "Industrieel Ingenieur Informatica",
+  "designatedTitle": "Msc of Science, Ing."
+}

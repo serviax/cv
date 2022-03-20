@@ -1,0 +1,64 @@
+// @name auth
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token HTTP/1.1
+Content-type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id={{clientId}}
+&client_secret={{clientSecret}}
+&scope={{scope}}
+
+###
+@authToken = {{auth.response.body.access_token}}
+
+###
+DELETE http://localhost:7000/api/language-knowledges/
+Authorization: Bearer {{authToken}}
+
+
+###
+POST http://localhost:7000/api/language-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "languageCode": "nl",
+  "language": "Nederlands",
+  "level": 5,
+  "order": 1
+}
+
+###
+POST http://localhost:7000/api/language-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "languageCode": "nl",
+  "language": "Engels",
+  "level": 4,
+  "order": "2"
+}
+
+###
+POST http://localhost:7000/api/language-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "languageCode": "nl",
+  "language": "Frans",
+  "level": 3,
+  "order": "3"
+}
+
+###
+POST http://localhost:7000/api/language-knowledges/
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "languageCode": "nl",
+  "language": "Duits",
+  "level": 1,
+  "order": "4"
+}

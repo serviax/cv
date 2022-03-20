@@ -1,0 +1,380 @@
+// @name auth
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token HTTP/1.1
+Content-type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id={{clientId}}
+&client_secret={{clientSecret}}
+&scope={{scope}}
+###
+@authToken = {{auth.response.body.access_token}}
+
+###
+DELETE http://localhost:7000/api/work-experiences/
+Authorization: Bearer {{authToken}}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "languageCode" : "en",
+  "startDate": "2006-09-01",
+  "endDate": "2006-12-31",
+  "companyName": "Bureau Van Dijk Electronic Publishing",
+  "description": "Responsible for extending and maintaining existing webapplications with new requirements and bugfixes."
+}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+   "languageCode" : "en",
+   "startDate":"2007-01-01",
+   "endDate":"2011-11-01",
+   "companyName":"Materialise Dental",
+   "description":"Materialise Dental builds software for orthodonists and dentists which allows them to prepare a dental operation in 3D. Uniquely designed guides can be produced, which can be order through the online shop of this software.",
+   "projects":[
+      {
+         "title":"Simplant High-End Application",
+         "role":"Software Developer",
+         "tasks":[
+            "Design and maintain user-friendly installation packages and maitenance of release scripts",
+            "Implment minor requirements and fix bugs",
+            "Final line of support for customers"
+         ],
+         "keywords":[
+            "C++",
+            "SVN",
+            "MSI",
+            "FinalBuilder",
+            "InstallShield"
+         ],
+         "order":"3",
+         "startDate":"2007-01-01",
+         "endDate":"2008-11-31"
+      },
+      {
+         "title":"Online Ordering Management systeem",
+         "role": "Software developer / (limited) Project Management",
+         "tasks":[
+            "Developed the architecture of Online Shop with mentoring",
+            "Full development including ms SQL database (fixing bugs, maintenance, extensions, new requirements)",
+            "Design and maintain release scripts and installers",
+            "Project management of tax web service"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "ASMX",
+            "WCF",
+            "WF",
+            "Linq",
+            "MS SQL",
+            "HTML",
+            "AJAX",
+            "javascript",
+            "CSS",
+            "SVN"
+         ],
+         "order":"2",
+         "startDate":"2007-01-01",
+         "endDate":"2010-12-31"
+      },
+      {
+         "title":"Simplant Basic/Go",
+         "role":"Software Developer ",
+         "tasks":[
+            "Think out architecture in accordance with other senior developpers",
+            "Development of first version of this application",
+            "Implement very user-friendly visual attractive interface including (WPF-)animations",
+            "Design and management of release scripts"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "WCF",
+            "MVVM",
+            "WPF",
+            "SVN"
+         ],
+         "order":"1",
+         "startDate":"2011-01-01",
+         "endDate":"2011-11-01"
+      },
+      {
+         "title":"Trainings",
+         "role":"organisator",
+         "tasks":[
+            "Plan internal technical traings for all developers"
+         ],
+         "keywords":[
+            "Trainings"
+         ],
+         "order":"4",
+         "startDate":"2010-01-01",
+         "endDate":"2011-12-31"
+      }
+   ]
+}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+   "languageCode" : "en",
+   "startDate":"2011-11-01",
+   "endDate":"2016-11-07",
+   "companyName":"Kapsch (previously Prodata Mobillity Systems)",
+   "description":"Kapsch creates software applications for the public transport sector. The software suite has many functionalities including sending messages to drivers, live tracking of vehicles and planning detours.",
+   "projects":[
+      {
+         "title":" workgroup",
+         "role":"Organiser",
+         "tasks":[
+            "Gather all SCRUM masters in a monthly joint workgroup"
+         ],
+         "order":"5",
+         "keywords":[
+            "Agile",
+            "SCRUM"
+         ],
+         "startDate":"2014-01-01",
+         "endDate":"2015-12-31"
+      },
+      {
+         "title":" ITS BO",
+         "role":"Scrum Master",
+         "tasks":[
+            "Continue development of Obstructions & Detours manager, stopzone manager, PoiTracker en Service Support Manager",
+            "Coach team meambers",
+            "Guardian of SCRUM methodologies and organiser of scrum ceremonies (meetings)"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "WCF",
+            "WPF",
+            "Git",
+            "NServiceBus",
+            "REST",
+            "WebApi",
+            "Teamcity",
+            "Oracle",
+            "ms SQL",
+            "Entity Framework"
+         ],
+         "order":"1",
+         "startDate":"2012-09-05",
+         "endDate":"2016-11-01"
+      },
+      {
+         "title":" ITS BO",
+         "role":"Teamlead",
+         "tasks":[
+            "Supprt with further development of PoiTracker and Service Support Manager",
+            "Daily follow-up of the team",
+            "Basic project management and compose planning schedule"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "WCF",
+            ".WPF",
+            "SVN",
+            "MSMQ",
+            "Oracle",
+            "ms SQL",
+            "Entity Framework"
+         ],
+         "order":"2",
+         "startDate":"2012-09-05",
+         "endDate":"2013-07-01"
+      },
+      {
+         "title":" ITS PoiTracker",
+         "role":"Lead Developer",
+         "tasks":[
+            "Design architecture PoiTracker",
+            "Develop first accepted version of this application",
+            "Advise and report on planning"
+         ],
+         "keywords":[
+            "C#",
+            "WPF",
+            "WCF",
+            ".Net",
+            "SVN",
+            "Oracle",
+            "ms SQL",
+            "Entity Framework"
+         ],
+         "order":"3",
+         "startDate":"2012-03-04",
+         "endDate":"2012-09-05"
+      },
+      {
+         "title":"Johannesburg AFC",
+         "role":"Software Developer",
+         "tasks":[
+            "Process EMV (Eurocard-Mastercard-Visa) transactions",
+            "Implement minor requirements and solve bugs",
+            "Design and maintain release scripts and management of releases"
+         ],
+         "keywords":[
+            "C#",
+            "WPF",
+            "WCF",
+            ".Net",
+            "SVN",
+            "WiX",
+            "Oracle",
+            "ms SQL"
+         ],
+         "order":"4",
+         "startDate":"2011-01-01",
+         "endDate":"2012-03-04"
+      }
+   ]
+}
+
+### 
+POST http://localhost:7000/api/work-experiences/
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+   "languageCode" : "en",
+   "startDate":"2016-11-08",
+   "companyName":"Boondoggle",
+   "description":"Boondoggle offers web development and marketing solutions for businesses. Most clients are active in the financial sector.",
+   "projects":[
+      {
+         "title":" Crefius mortgages",
+         "role":"Lead Developer",
+         "tasks":[
+            "Develop white-label product for a customer-zone for mortgages",
+            "Co-ordinate with partner company",
+            "Analyse and design architecture"
+         ],
+         "keywords":[
+            "React",
+            "Redux",
+            "Next.JS",
+            "CSS/SASS",
+            "Git",
+            "REST",
+            "Typescript",
+            "Azure"
+         ],
+         "order":"1",
+         "startDate":"2022-04-01"
+      },
+      {
+         "title":" Dogglepret (internal application for timetracking, holidays, budgets, projects, ...)",
+         "role":"Lead Developer",
+         "tasks":[
+            "Maintenance existing application",
+            "Contact users and crystalize requirements",
+            "Refactor existing code to modern standards",
+            "Plan releases and deployments"
+         ],
+         "keywords":[
+            "C#",
+            ".NET",
+            "Angular",
+            "Git",
+            "Bamboo",
+            "Typescript",
+            "Entity Framework",
+            "CSS",
+            "ms SQL"
+         ],
+         "order":"2",
+         "startDate":"2021-09-01"
+      },
+      {
+         "title":" Argenta.NL public site and online bank environment",
+         "role":"Lead Developer",
+         "tasks":[
+            "Weekly contact sessions with client",
+            "Responsible for technical analysis and estimations",
+            "Develop new features and maintain existing features",
+            "Assist/advice in functional design of new requirements",
+            "Support, assist and follow-up development team",
+            "Align with other involved companies",
+            "Technically document the website"
+         ],
+         "keywords":[
+            "C#",
+            "AngularJS",
+            "Javascript",
+            ".Net",
+            "Git",
+            "REST",
+            "WebApi",
+            "DI",
+            "Sitecore"
+         ],
+         "order":"3",
+         "startDate":"2018-01-01",
+         "endDate":"2021-12-31"
+      },
+      {
+         "title":"Moneyou savings and mortgages",
+         "role":"Software Developer",
+         "tasks":[
+            "Support existing development",
+            "Make estimations and assist development",
+            "Asssist junior developers",
+            "Co-operate with involved companies"
+         ],
+         "keywords":[
+            "C#",
+            ".Net",
+            "AngularJS",
+            "REST",
+            "Typescript",
+            "CSS",
+            "WebApi",
+            "Sitecore"
+         ],
+         "order":"5",
+         "startDate":"2016-11-08",
+         "endDate":"2017-07-01"
+      },
+      {
+         "title":"Multiple minor projects for Elia, Payconicq, Bank Delen, Evi Van Lanschot, ...",
+         "role":"(Lead) Software Developer",
+         "tasks":[
+            "Support existing development",
+            "Face-to-face discussion with client",
+            "Implement new requirements and fix bugs",
+            "Support junior developer(s)"
+         ],
+         "keywords":[
+            "C#",
+            ".Net",
+            "Docker",
+            "Azure devops",
+            "REST",
+            "Sitecore",
+            "ms SQL",
+            "WebApi",
+            "CSS"
+         ],
+         "order":"6",
+         "startDate":"2016-11-08",
+         "endDate":"2021-12-31"
+      }
+   ]
+}
+
+
+### 
+GET  http://localhost:7000/api/work-experiences/nl

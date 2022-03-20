@@ -1,0 +1,177 @@
+// @name auth
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token HTTP/1.1
+Content-type: application/x-www-form-urlencoded
+
+grant_type=client_credentials
+&client_id={{clientId}}
+&client_secret={{clientSecret}}
+&scope={{scope}}
+
+
+###
+@authToken = {{auth.response.body.access_token}}
+
+###
+###
+#
+#
+# NEDERLANDS
+#
+#
+###
+###
+DELETE http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "Full stack developer"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "SCRUM Master (Agile principes)"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "Analytisch"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "Kwaliteitsgericht"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "Test-gerichte ontwikkeling"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "Software bedrijven"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "nl",
+  "keyWord": "15 jaar ervaring"
+}
+
+###
+###
+#
+#
+# ENGLISH
+#
+#
+###
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Full stack developer"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "SCRUM Master (Agile Methods)"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Analytical"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Focus on quality"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Test-oriented"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "Software centric companies"
+}
+
+###
+POST http://localhost:7000/api/keywords/
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+  "languageCode" : "en",
+  "keyWord": "15 years experience"
+}
+
+
+
+###
+GET http://localhost:7000/api/keywords/en

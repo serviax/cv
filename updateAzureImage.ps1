@@ -1,0 +1,1 @@
+az webapp config container set --name cv-servaas-phlips --resource-group cv-servaas-phlips-rg --docker-custom-image-name servaasservi/cv:latest --docker-registry-server-url https://index.docker.io --docker-registry-server-user servaasservi --docker-registry-server-password 18DOCviser!
