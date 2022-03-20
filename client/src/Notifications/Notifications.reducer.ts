@@ -31,5 +31,3 @@ const notificationsSlice = createSlice({
 
 export const { addNotification, dismissNotification, clearNotifications } = notificationsSlice.actions;
 export default notificationsSlice.reducer;
-
-// export const sayHello = () => console.log('say hello');
