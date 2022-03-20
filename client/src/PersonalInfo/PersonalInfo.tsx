@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from '../translations';
+import { useTranslation } from '../common/translations';
 import usePersonalInfo from './usePersonalInfo';
 import Record from './Record';
 import ReCAPTCHA from 'react-google-recaptcha';

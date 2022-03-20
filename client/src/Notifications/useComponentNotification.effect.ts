@@ -6,11 +6,10 @@ import { useAppNotifications } from './useAppNotification.hooks';
 const useComponentNotification = () => {
   const notifications = useAppSelector(state => state.notifications);
   const dispatch = useAppDispatch();
-  const {dismissNotification, dismissNotifications} = useAppNotifications();
-  
+  const { dismissNotification, dismissNotifications } = useAppNotifications();
+
 
   useEffect(() => {
-
     setUpNotifications({
       defaultProps: {
         position: 'bottom-right',

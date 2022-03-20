@@ -1,6 +1,7 @@
 import React from 'react';
 import useLanguageSwitcher from './useLanguageSwitcher';
 import DropdownMenu from '../Dropdown/Dropdown';
+
 import '../styles/flags.css';
 import './LanguageSwitcher.scss';
 

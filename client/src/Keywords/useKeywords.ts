@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { BACKEND_URL } from '../common/config';
 import axios, { AxiosResponse } from 'axios';
+
+import { BACKEND_URL } from '../common/config';
 import KeyWordResponse from './KeywordResponse.model';
-import { useTranslation } from '../translations';
+import { useTranslation } from '../common/translations';
 import { useAppDispatch, useAppSelector } from '../common/hooks';
 import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
 

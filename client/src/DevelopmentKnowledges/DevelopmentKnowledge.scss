@@ -1,54 +1,52 @@
-.legend {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+.development-knowledges {
+  .technologies {
+    @media only screen and (max-width: 768px) {
+      padding-top: 0;
+      padding-bottom: 0;
 
-  span {
+      table thead {
+        display: none;
+      }
+    }
+
+    &:first-child {
+      @media only screen and (max-width: 768px) {
+        table {
+          border-bottom: 1px solid hsl(0, 0%, 86%);
+          thead {
+            display: table-header-group;
+          }
+        }
+      }
+    }
+
+    .technology-level {
+      width: 4rem;
+    }
+
+    .technology-usage {
+      width: 6rem;
+    }
+  }
+
+  .legend {
     display: flex;
-    align-items: baseline;
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-    margin-right: 0.5rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 
-    &:last-child {
-      margin-right: 0rem;
-    }
+    span {
+      display: flex;
+      align-items: baseline;
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+      margin-right: 0.5rem;
 
-    .icon {
-      margin-right: 0.25rem;
-    }
-  }
-}
+      &:last-child {
+        margin-right: 0rem;
+      }
 
-.technologies {
-  .technology-level {
-    width: 4rem;
-  }
-
-  .technology-usage {
-    width: 8rem;
-  }
-
-  table {
-    page-break-inside: avoid;
-  }
-
-  @media only screen and (max-width: 768px) {
-    padding-top: 0;
-    padding-bottom: 0;
-
-    table thead {
-      display: none;
-    }
-  }
-}
-
-.technologies:first-child {
-  @media only screen and (max-width: 768px) {
-    table {
-      border-bottom: 1px solid hsl(0, 0%, 86%);
-      thead {
-        display: table-header-group;
+      .icon {
+        margin-right: 0.25rem;
       }
     }
   }

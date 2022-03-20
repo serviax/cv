@@ -1,5 +1,4 @@
 import React from 'react';
-import './Icon.css';
 
 export interface IconProps {
   name?: string

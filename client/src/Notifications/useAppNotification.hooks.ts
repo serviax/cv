@@ -1,13 +1,11 @@
 import { Notification, useNotifications } from 'reapop';
-// import { useAppSelector } from '../common/hooks';
-
 
 // The actual implementation in reapop for reducers is incorrect, the payload is sent instead of the action
 // this means it doesn't work properly
 // this hook fixes the wrong implemtation
 const useAppNotifications = (() => {
   const { notify, notifications } = useNotifications();
-  // const notifications = useAppSelector(state => state.notifications);
+
 
   const wrappedNotify = (notification: Partial<Notification>) => {
     const payloadData = notify(notification);
@@ -16,14 +14,14 @@ const useAppNotifications = (() => {
 
   const wrappedDismissNotification = (id: string) => {
     const payloadData = id;
-    return { type: 'reapop/dismissNotification', payload: payloadData};
+    return { type: 'reapop/dismissNotification', payload: payloadData };
   };
 
   const wrappedDimissNotifications = () => {
-    return { type: 'reapop/dismissNotifications'};
+    return { type: 'reapop/dismissNotifications' };
   };
 
-  return { notify: wrappedNotify, dismissNotification : wrappedDismissNotification, dismissNotifications : wrappedDimissNotifications, notifications };
+  return { notify: wrappedNotify, dismissNotification: wrappedDismissNotification, dismissNotifications: wrappedDimissNotifications, notifications };
 });
 
 

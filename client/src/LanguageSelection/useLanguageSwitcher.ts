@@ -1,8 +1,9 @@
+import { useEffect, useRef } from 'react';
+
 import { useAppDispatch, useAppSelector } from '../common/hooks';
 import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
 import { switchLanguage } from './LanguageSelection.reducer';
-import { i18n as translationService, useTranslation } from '../translations';
-import { useEffect, useRef } from 'react';
+import { i18n as translationService, useTranslation } from '../common/translations';
 import { DropdownModel, DropdownMenuItemModel } from '../Dropdown/Dropdown.model';
 import { LANGUAGES } from '../common/config';
 

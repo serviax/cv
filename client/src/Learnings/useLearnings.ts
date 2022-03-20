@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
 import { BACKEND_URL } from '../common/config';
-import { useTranslation } from '../translations';
+import { useTranslation } from '../common/translations';
 import { useAppDispatch, useAppSelector } from '../common/hooks';
 import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
 import UpdateKnowledgeResponse from './UpdateKnowledgeSchema';

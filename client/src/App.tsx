@@ -1,7 +1,4 @@
 import React from 'react';
-import './App.css';
-import 'bulma/css/bulma.min.css';
-import './styles/icons.scss';
 
 import PersonalInfo from './PersonalInfo/PersonalInfo';
 
@@ -13,8 +10,11 @@ import Footer from './Footer/Footer';
 import Knowledges from './DevelopmentKnowledges/DevelopmentKnowledges';
 import LanguageKnowledges from './LanguageKnowledge/LanguageKnowledges';
 import Education from './Education/Education';
-import ProgressBar from './Progressbar/Progressbar';
 import Learnings from './Learnings/Learnings';
+
+import './App.scss';
+import 'bulma/css/bulma.min.css';
+import './styles/icons.scss';
 
 
 function App() {

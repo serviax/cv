@@ -1,7 +1,6 @@
-import { t } from 'i18next';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Icon from '../Icon/Icon';
-import { useTranslation } from '../translations';
+import { useTranslation } from '../common/translations';
 import ExperienceModel from './Experience.model';
 import './Experience.scss';
 import Field from './Field';
@@ -9,7 +8,6 @@ import Field from './Field';
 interface IExperienceProps {
   experience: ExperienceModel,
 }
-
 
 const Experience = ({ experience }: IExperienceProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false);

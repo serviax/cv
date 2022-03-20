@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Section from '../Section/Section';
 import Experience from './Experience';
 import useExperiences from './useExperiences';
-import { useTranslation } from '../translations';
+import { useTranslation } from '../common/translations';
 
 import './Experience.scss';
 

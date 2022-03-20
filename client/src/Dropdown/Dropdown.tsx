@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+
 import { DropdownModel } from './Dropdown.model';
-import PropTypes from 'prop-types'; // ES6
-import './Dropdown.css';
 import useDropdownMenu from './useDropdown';
+
+import './Dropdown.scss';
 
 interface IDropdownMenuProps {
   menu: DropdownModel
@@ -39,6 +41,7 @@ const DropdownMenu = ({ menu }: IDropdownMenuProps) => {
               let itemClassName = 'dropdown-item app-dropdown-item';
               if (menu.selectedItem != null && item.key === menu.selectedItem.key)
                 itemClassName += ' has-background-dark has-text-light';
+
               return (
                 <a key={item.key} role='menuitem' className={itemClassName} onClick={() => item.onSelect && item.onSelect(item) && menu.selectedItem == item}>
                   {item.icon && (<span className={item.icon}></span>)}

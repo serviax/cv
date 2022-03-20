@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { act } from 'react-dom/test-utils';
 import { Notification, STATUSES } from 'reapop';
-import { CONFIG } from 'reapop/dist/constants';
-// import 'reapop/dist/services/notifications';
-// import { prepareNotification } from 'reapop/dist/services/notifications';
 
 
 const initialState : Notification[] = [];
@@ -12,7 +8,8 @@ const notificationsSlice = createSlice({
   initialState,
   reducers: {
     addNotification(state, action) {
-      const newNotification = { id: 'someRandomId', dismissible: true, status: STATUSES.none, buttons:[], ... action.payload};
+      const randomId = 'id-' + Math.floor(Math.random() * 99999);
+      const newNotification = { id: randomId, dismissible: true, status: STATUSES.none, buttons:[], ... action.payload};
       const notifications = [...state, newNotification];
       return notifications;
     },

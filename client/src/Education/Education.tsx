@@ -1,6 +1,7 @@
 import React from 'react';
+
 import Section from '../Section/Section';
-import { useTranslation } from '../translations';
+import { useTranslation } from '../common/translations';
 import useEducation from './useEducation';
 
 const Education = () => {

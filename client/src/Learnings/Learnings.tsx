@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from '../Icon/Icon';
 import Section from '../Section/Section';
-import { useTranslation } from '../translations';
+import { useTranslation } from '../common/translations';
 import { UpdateKnowledgeType } from './UpdateKnowledgeSchema';
 import useLearnings from './useLearnings';
 

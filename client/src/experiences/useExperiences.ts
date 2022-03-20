@@ -1,9 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
-import { BACKEND_URL, LANGUAGES } from '../common/config';
+
+import { BACKEND_URL } from '../common/config';
 import { useAppDispatch, useAppSelector } from '../common/hooks';
 import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
-import { useTranslation } from '../translations';
+import { useTranslation } from '../common/translations';
 import ExperienceModel from './Experience.model';
 import ProjectModel from './Project.model';
 import { ProjectResponse } from './ProjectResponse';
@@ -15,8 +16,6 @@ const useExperiences = () => {
   const { notify } = useAppNotifications();
   const [experiences, setExperiences] = useState<ExperienceModel[]>();
   const { t } = useTranslation();
-  const langaugeSet = LANGUAGES.find(l => l.code == language);
-  const culture = langaugeSet?.culture;
 
   const getFormattedYear = (element: string | undefined): string | null => {
     let formattedResult = null;

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { BACKEND_URL } from '../common/config';
 import axios, { AxiosResponse } from 'axios';
-import { useTranslation } from '../translations';
+
+import { BACKEND_URL } from '../common/config';
+import { useTranslation } from '../common/translations';
 import { useAppDispatch } from '../common/hooks';
 import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
 import EducationResponse from './EducationResponse';
