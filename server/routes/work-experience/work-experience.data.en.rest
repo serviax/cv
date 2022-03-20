@@ -326,33 +326,12 @@ Authorization: Bearer {{authToken}}
          "endDate":"2021-12-31"
       },
       {
-         "title":"Bank delen Cadelam",
-         "role":"Software Developer",
-         "tasks":[
-            "Support existing development",
-            "Support and assist junior developer",
-            "Face-to-face discussions with client"
-         ],
-         "keywords":[
-            "C#",
-            ".Net",
-            "Git",
-            "REST",
-            "ms SQL",
-            "CSS",
-            "WebApi",
-            "Sitecore"
-         ],
-         "order":"4",
-         "startDate":"2017-06-01",
-         "endDate":"2017-12-31"
-      },
-      {
          "title":"Moneyou savings and mortgages",
          "role":"Software Developer",
          "tasks":[
             "Support existing development",
             "Make estimations and assist development",
+            "Asssist junior developers",
             "Co-operate with involved companies"
          ],
          "keywords":[
@@ -370,11 +349,13 @@ Authorization: Bearer {{authToken}}
          "endDate":"2017-07-01"
       },
       {
-         "title":"Multiple minor projects for Elia, Payconicq, Evi Van Lanschot, ...",
-         "role":"Software Developer",
+         "title":"Multiple minor projects for Elia, Payconicq, Bank Delen, Evi Van Lanschot, ...",
+         "role":"(Lead) Software Developer",
          "tasks":[
             "Support existing development",
-            "Implement new requirements and fix bugs"
+            "Face-to-face discussion with client",
+            "Implement new requirements and fix bugs",
+            "Support junior developer(s)"
          ],
          "keywords":[
             "C#",
@@ -382,7 +363,10 @@ Authorization: Bearer {{authToken}}
             "Docker",
             "Azure devops",
             "REST",
-            "Sitecore"
+            "Sitecore",
+            "ms SQL",
+            "WebApi",
+            "CSS"
          ],
          "order":"6",
          "startDate":"2016-11-08",

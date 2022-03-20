@@ -17,7 +17,7 @@
     "driverLicense": "rijbewijs",
     "birthDate": "geboortedatum",
     "email": "e-mail",
-    "checkHuman": "Om gedetailleerde persoonlijke gegevens te zien met u eerst bevestigen dat u geen robot bent."
+    "checkHuman": "Om gedetailleerde persoonlijke gegevens te zien moet u eerst bevestigen dat u geen robot bent."
   },
   "keywords": {
     "title": "Sleutelwoorden"
@@ -39,7 +39,7 @@
   },
   "education": {
     "title": "Opleiding",
-    "explanation": "Tussen haakjes vindt u de huidige benaming van deze opleiding en de titel."
+    "explanation": "Tussen haakjes vindt u de graad van deze opleiding volgens het Bologna akkoord en eveneens de titel."
   },
   "learnings": {
     "title": "Bijscholing",

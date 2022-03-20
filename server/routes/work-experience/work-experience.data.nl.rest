@@ -255,9 +255,10 @@ Authorization: Bearer {{authToken}}
    "description":"Boondoggle biedt web development en marketing oplossingen voor bedrijven. De meeste klanten bevinden zich in de financiële sector.",
    "projects":[
       {
-         "title":" Crefius hpyothekensite",
+         "title":" Crefius hypotheken",
          "role":"Lead Developer",
          "tasks":[
+            "Aankomend project",
             "Ontwikkeling van white-label product voor klantenzone hypotheken",
             "Coördineren met partnerbedrijf",
             "Analyseren en uitdenken architectuur"
@@ -326,33 +327,12 @@ Authorization: Bearer {{authToken}}
          "endDate":"2021-12-31"
       },
       {
-         "title":"Bank delen Cadelam",
-         "role":"Software Developer",
-         "tasks":[
-            "Ondersteunen bestaande ontwikkeling",
-            "Ondersteuning junior developer",
-            "Face-to-face besprekingen met de klant"
-         ],
-         "keywords":[
-            "C#",
-            ".Net",
-            "Git",
-            "REST",
-            "ms SQL",
-            "CSS",
-            "WebApi",
-            "Sitecore"
-         ],
-         "order":"4",
-         "startDate":"2017-06-01",
-         "endDate":"2017-12-31"
-      },
-      {
          "title":"Moneyou savings en hypotheken",
          "role":"Software Developer",
          "tasks":[
             "Ondersteunen bestaande ontwikkeling",
-            "Inschatten en mee ontwikkelen",
+            "Inschatten nieuwe requirements en mee ontwikkelen",
+            "Begeleiden junior developers",
             "Samenwerken met andere bedrijven"
          ],
          "keywords":[
@@ -370,11 +350,13 @@ Authorization: Bearer {{authToken}}
          "endDate":"2017-07-01"
       },
       {
-         "title":"verschillende kleinere projecten voor Elia, Payconicq, Evi Van Lanschot, ...",
-         "role":"Software Developer",
+         "title":"verschillende kleinere projecten voor Elia, Payconicq, Bank Delen, Evi Van Lanschot, ...",
+         "role":"(Lead) Software Developer",
          "tasks":[
             "Ondersteunen bestaande ontwikkeling",
-            "Inschatten en mee oplossingen bedenken met de klant"
+            "Face-to-face gesprekken met de klant",
+            "Inschatten en mee oplossingen bedenken met de klant",
+            "Ondersteuning junior developer(s)"
          ],
          "keywords":[
             "C#",
@@ -382,7 +364,10 @@ Authorization: Bearer {{authToken}}
             "Docker",
             "Azure devops",
             "REST",
-            "Sitecore"
+            "Sitecore",
+            "ms SQL",
+            "WebApi",
+            "CSS"
          ],
          "order":"6",
          "startDate":"2016-11-08",
