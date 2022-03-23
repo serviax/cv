@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { BACKEND_URL } from '../common/config';
 import { useAppDispatch, useAppSelector } from '../common/hooks';
-import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
+import { useAppNotifications } from '../Notifications/UseAppNotification.hooks';
 import { useTranslation } from '../common/translations';
 import ExperienceModel from './Experience.model';
 import ProjectModel from './Project.model';

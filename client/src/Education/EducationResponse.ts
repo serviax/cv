@@ -2,7 +2,7 @@ interface EducationResponse {
   startYear: number,
   endYear: number,
   name: string,
-  schoolname: string,
+  schoolName: string,
   designatedTitle: string
 }
 

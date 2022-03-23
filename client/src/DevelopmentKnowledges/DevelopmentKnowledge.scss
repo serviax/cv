@@ -27,27 +27,17 @@
     .technology-usage {
       width: 6rem;
     }
+
+    th, td {
+      vertical-align: baseline !important;
+      padding: 0.2rem !important;
+    }
   }
 
-  .legend {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
 
-    span {
-      display: flex;
-      align-items: baseline;
-      margin-top: 0.25rem;
-      margin-bottom: 0.25rem;
-      margin-right: 0.5rem;
-
-      &:last-child {
-        margin-right: 0rem;
-      }
-
-      .icon {
-        margin-right: 0.25rem;
-      }
+  @media print {
+    th, td {
+      padding: 0.1rem !important;
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '../Section/Section';
 import Experience from './Experience';
-import useExperiences from './useExperiences';
+import useExperiences from './UseExperiences';
 import { useTranslation } from '../common/translations';
 
 import './Experience.scss';

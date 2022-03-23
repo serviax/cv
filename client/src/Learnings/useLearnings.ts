@@ -4,7 +4,7 @@ import axios, { AxiosResponse } from 'axios';
 import { BACKEND_URL } from '../common/config';
 import { useTranslation } from '../common/translations';
 import { useAppDispatch, useAppSelector } from '../common/hooks';
-import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
+import { useAppNotifications } from '../Notifications/UseAppNotification.hooks';
 import UpdateKnowledgeResponse from './UpdateKnowledgeSchema';
 import LearningModelOverview from './Learn.model';
 

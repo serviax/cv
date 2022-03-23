@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../common/translations';
-import usePersonalInfo from './usePersonalInfo';
+import usePersonalInfo from './UsePersonalInfo';
 import Record from './Record';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './PersonalInfo.scss';
@@ -10,12 +10,12 @@ function PersonalInfo() {
   const { t } = useTranslation();
 
   return (
-    <div className='block card'>
+    <div className='block card personal-info'>
       <div className='card-content'>
         <div className='content'>
           <div className='tile is-ancestor'>
             <div className='tile is-vertical is-4 is-parent'>
-              <div className='tile is-child' >
+              <div className='tile is-child'>
                 <picture>
                   <source type='image/webp' srcSet='Servaas.webp' />
                   <img src='Servaas.jpg' width='250' height='375' alt={t('personalInfo.profilePicture')} style={{ width: '250px' }} />

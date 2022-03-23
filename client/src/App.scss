@@ -2,9 +2,43 @@
   display: none !important;
 }
 
+.legend {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  span {
+    display: flex;
+    align-items: baseline;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    margin-right: 0.5rem;
+
+    &:last-child {
+      margin-right: 0rem;
+    }
+
+    .icon {
+      margin-right: 0.25rem;
+    }
+  }
+}
+
 @media print {
+  body {
+    line-height: 80%;
+  }
+
   .is-collapsed-for-print {
     display: none !important;
+  }
+
+  .is-non-breakable-for-print {
+    page-break-inside: avoid;
+  }
+
+  .is-page-break-for-print {
+    page-break-before: always;
   }
 
   .columns {
@@ -14,7 +48,7 @@
       margin-bottom: 0.2rem !important;
     }
   }
-  
+
   .hero-body {
     padding: 0.5rem !important;
   }

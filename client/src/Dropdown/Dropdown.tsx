@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { DropdownModel } from './Dropdown.model';
-import useDropdownMenu from './useDropdown';
+import useDropdownMenu from './UseDropdown';
 
 import './Dropdown.scss';
 

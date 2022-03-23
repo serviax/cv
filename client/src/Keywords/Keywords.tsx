@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '../Section/Section';
 import { useTranslation } from '../common/translations';
-import useKeyWords from './useKeywords';
+import useKeyWords from './UseKeywords';
 
 const Keywords = () => {
   const { keyWords } = useKeyWords();

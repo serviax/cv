@@ -35,7 +35,7 @@ const Experience = ({ experience }: IExperienceProps) => {
   return (
     <div className='card experiences'>
 
-      <header className='card-header has-background-primary'>
+      <header className='card-header has-background-primary is-non-breakable-for-print'>
         <div className='card-header-title has-text-info-light is-size-5 is-flex'>
           <div className='icon-text is-flex is-justify-content-space-between is-clickable experience-header' onClick={() => setIsCollapsed(!isCollapsed)}>
             <div className='is-flex is-align-items-baseline'>
@@ -59,7 +59,7 @@ const Experience = ({ experience }: IExperienceProps) => {
         {experience.description && <div className='mb-3'>{experience.description}</div>}
 
         {experience.projects && experience.projects.map((project, idx) =>
-          <div className='project-details box' key={idx}>
+          <div className='project-details box is-non-breakable-for-print' key={idx}>
             <div>
               <Field icon='terminal' extraClassNames='has-text-weight-bold'>
                 <span>{project.role} - {project.title}</span>

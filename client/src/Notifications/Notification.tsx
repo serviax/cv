@@ -1,6 +1,6 @@
 import React from 'react';
 import NotificationsSystem from 'reapop';
-import useComponentNotification from './useComponentNotification.effect';
+import useComponentNotification from './UseComponentNotification.effect';
 
 const Notification = () => {
   const {notifications, deleteNotification, theme} = useComponentNotification();

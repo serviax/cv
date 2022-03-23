@@ -5,7 +5,7 @@ import { BACKEND_URL } from '../common/config';
 import KeyWordResponse from './KeywordResponse.model';
 import { useTranslation } from '../common/translations';
 import { useAppDispatch, useAppSelector } from '../common/hooks';
-import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
+import { useAppNotifications } from '../Notifications/UseAppNotification.hooks';
 
 const useKeyWords = () => {
   const language = useAppSelector(state => state.language);

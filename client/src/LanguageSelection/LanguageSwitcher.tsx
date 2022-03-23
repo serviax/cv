@@ -1,5 +1,5 @@
 import React from 'react';
-import useLanguageSwitcher from './useLanguageSwitcher';
+import useLanguageSwitcher from './UseLanguageSwitcher';
 import DropdownMenu from '../Dropdown/Dropdown';
 
 import '../styles/flags.css';

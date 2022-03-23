@@ -4,14 +4,16 @@ interface ISectionProps {
   title: string,
   children?: React.ReactNode,
   iconName?: string,
-  sideComponent?: React.ReactNode
+  sideComponent?: React.ReactNode,
+  additionalClassNames?: string
 }
 
-const Section = ({ title, iconName, children, sideComponent }: ISectionProps) => {
+const Section = ({ title, iconName, children, sideComponent, additionalClassNames }: ISectionProps) => {
   const fullIconClassName = iconName != null ? `icon has-icon-filler icon-primary-color icon-large icon-${iconName}` : null;
+  const sectionClassNames =  additionalClassNames == null ? 'block card': 'block card ' +additionalClassNames;
 
   return (
-    <div className='block card'>
+    <div className={sectionClassNames}>
       <div className='card-content'>
         <div className='content'>
           <div className='tile is-ancestor'>

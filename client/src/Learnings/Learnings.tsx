@@ -3,7 +3,7 @@ import Icon from '../Icon/Icon';
 import Section from '../Section/Section';
 import { useTranslation } from '../common/translations';
 import { UpdateKnowledgeType } from './UpdateKnowledgeSchema';
-import useLearnings from './useLearnings';
+import useLearnings from './UseLearnings';
 
 
 const Learnings = () => {
@@ -28,7 +28,7 @@ const Learnings = () => {
 
 
       {learnings && learnings.map(overview => {
-        return (<div key={overview.year} className='mb-4'>
+        return (<div key={overview.year} className='mb-4 is-non-breakable-for-print'>
           <div className='is-size-5 has-text-weight-bold'>{overview.year}</div>
 
           {overview.updates && overview.updates.map((item, idx) =>

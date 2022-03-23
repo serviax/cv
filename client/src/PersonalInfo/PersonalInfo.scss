@@ -1,8 +1,17 @@
-.recaptcha {
-  height: 50%;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 0 auto;
+.personal-info {
+  @media print {
+    img {
+      height: 281px !important;
+      width: 187px !important;
+    }
+  }
+
+  .recaptcha {
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
 }

@@ -3,7 +3,7 @@ import { BACKEND_URL } from '../common/config';
 import axios, { AxiosResponse } from 'axios';
 import { useTranslation } from '../common/translations';
 import { useAppDispatch, useAppSelector } from '../common/hooks';
-import { useAppNotifications } from '../Notifications/useAppNotification.hooks';
+import { useAppNotifications } from '../Notifications/UseAppNotification.hooks';
 import LanguageKnowledgeResponse from './LanguageKnowledgeResponse';
 
 const useLanguageKnowledges = () => {

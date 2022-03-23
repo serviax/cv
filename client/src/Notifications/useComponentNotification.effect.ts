@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { setUpNotifications, bootstrapTheme } from 'reapop';
 import { useAppDispatch, useAppSelector } from '../common/hooks';
-import { useAppNotifications } from './useAppNotification.hooks';
+import { useAppNotifications } from './UseAppNotification.hooks';
 
 const useComponentNotification = () => {
   const notifications = useAppSelector(state => state.notifications);

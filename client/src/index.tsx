@@ -5,7 +5,7 @@ import { NotificationsProvider } from 'reapop';
 import store from './common/store';
 import { Provider } from 'react-redux';
 
-import './index.css';
+import './index.scss';
 
 
 ReactDOM.render(

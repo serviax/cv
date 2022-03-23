@@ -2,7 +2,7 @@ import React from 'react';
 import ProgressBar from '../Progressbar/Progressbar';
 import Section from '../Section/Section';
 import { useTranslation } from '../common/translations';
-import useLanguageKnowledges from './useLanguages';
+import useLanguageKnowledges from './UseLanguages';
 
 import './Languages.scss';
 

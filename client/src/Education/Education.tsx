@@ -2,7 +2,7 @@ import React from 'react';
 
 import Section from '../Section/Section';
 import { useTranslation } from '../common/translations';
-import useEducation from './useEducation';
+import useEducation from './UseEducation';
 
 const Education = () => {
   const { education } = useEducation();
@@ -13,9 +13,11 @@ const Education = () => {
       <>
         <div className='content is-small'>{t('education.explanation')}</div>
 
-        <div className='has-text-weight-bold'>{education?.name} ( {education?.designatedTitle} )</div>
-        <div>{education?.schoolname}</div>
-        <div>{education?.startYear} - {education?.endYear}</div>
+        <div className='is-flex is-flex-direction-column'>
+          <div className='has-text-weight-bold'>{education?.name} ( {education?.designatedTitle} )</div>
+          <div className='ml-2'>{education?.schoolName}</div>
+          <div className='ml-2'>{education?.startYear} - {education?.endYear}</div>
+        </div>
       </>
     </Section >);
 };

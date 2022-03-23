@@ -30,7 +30,7 @@ function App() {
 
         <header className='block hero is-primary'>
           <div className='hero-body'>
-            <p className='title has-text-centered'>C.V. Phlips Servaas</p>
+            <p className='title has-text-centered'>C.V. Servaas Phlips</p>
           </div>
         </header>
 
