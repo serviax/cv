@@ -14,7 +14,6 @@ For the front-end we will use the following tools
 - Lodash
 - Bulma css (but no sass since it is less useful)
 - Moment
-- 
 
 ### `npm start`
 
